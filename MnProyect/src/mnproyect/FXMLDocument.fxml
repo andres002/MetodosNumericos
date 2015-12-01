@@ -1,22 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="610.0" prefWidth="543.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="mnproyect.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="474.0" prefWidth="543.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mnproyect.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <SplitPane dividerPositions="0.19736842105263158" orientation="VERTICAL" prefHeight="610.0" prefWidth="543.0">
+      <SplitPane dividerPositions="0.19736842105263158" orientation="VERTICAL" prefHeight="536.0" prefWidth="543.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
                   <ComboBox fx:id="cb_opcion" layoutX="196.0" layoutY="34.0" prefWidth="150.0" promptText="Elija una opción" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="424.0" prefWidth="541.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="381.0" prefWidth="541.0">
+               <children>
+                  <Pane fx:id="pane_Bi" prefHeight="426.0" prefWidth="543.0">
+                     <children>
+                        <TextField fx:id="txt_a" layoutX="189.0" layoutY="61.0" prefHeight="34.0" prefWidth="311.0" />
+                        <Label layoutX="79.0" layoutY="69.0" text="A" />
+                        <TextField fx:id="txt_b" layoutX="189.0" layoutY="124.0" prefHeight="34.0" prefWidth="311.0" />
+                        <Label layoutX="79.0" layoutY="133.0" text="B" />
+                        <TextField fx:id="txt_f" layoutX="189.0" layoutY="189.0" prefHeight="34.0" prefWidth="311.0" />
+                        <Label layoutX="79.0" layoutY="198.0" text="f(x)" />
+                        <TextField fx:id="txt_n" layoutX="189.0" layoutY="257.0" prefHeight="34.0" prefWidth="311.0" />
+                        <Label layoutX="78.0" layoutY="266.0" text="N" />
+                        <TextField fx:id="txt_tol" layoutX="189.0" layoutY="321.0" prefHeight="34.0" prefWidth="311.0" />
+                        <Label layoutX="78.0" layoutY="330.0" text="TOL" />
+                        <Button fx:id="btn_submit" layoutX="246.0" layoutY="379.0" mnemonicParsing="false" text="OK" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="lbl_metodos" layoutX="47.0" layoutY="138.0" text="MÉTODOS" textFill="#0000002d" visible="false">
+                     <font>
+                        <Font name="Copperplate Gothic Light" size="79.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
         </items>
       </SplitPane>
     </children>

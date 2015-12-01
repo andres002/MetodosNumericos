@@ -7,11 +7,11 @@ package mnproyect;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 
 /**
  *
@@ -19,21 +19,24 @@ import javafx.scene.control.Label;
  */
 public class FXMLDocumentController implements Initializable {
     
-    @FXML
-    private ComboBox cb_opcion;
-    
-    
+    @FXML private ComboBox cb_opcion;
+    @FXML private Label lbl_metodos;
+    @FXML private Pane pane_Bi;
     
     private void combo(){
-        
+        pane_Bi.setVisible(false);
+        lbl_metodos.setVisible(true);
         cb_opcion.getItems().add("Bisección");
         cb_opcion.getItems().add("Punto fijo");
         cb_opcion.getItems().add("Newton-Raphson");
         cb_opcion.getItems().add("Lagrange");
         cb_opcion.setOnAction(a ->{
+            lbl_metodos.setVisible(false);
+            pane_Bi.setVisible(false);
             String opc = cb_opcion.getValue().toString();
             switch(opc){
                 case "Bisección":
+                    pane_Bi.setVisible(true);
                     System.out.println("Biseccion");
                     break;
                 case "Punto fijo":
@@ -50,9 +53,7 @@ public class FXMLDocumentController implements Initializable {
                 });
         
     }
-    
-   
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         combo();
