@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 /**
@@ -19,18 +20,42 @@ import javafx.scene.control.Label;
 public class FXMLDocumentController implements Initializable {
     
     @FXML
-    private Label label;
+    private ComboBox cb_opcion;
     
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-        System.out.println("Hola :p");
+    
+    
+    private void combo(){
+        
+        cb_opcion.getItems().add("Bisección");
+        cb_opcion.getItems().add("Punto fijo");
+        cb_opcion.getItems().add("Newton-Raphson");
+        cb_opcion.getItems().add("Lagrange");
+        cb_opcion.setOnAction(a ->{
+            String opc = cb_opcion.getValue().toString();
+            switch(opc){
+                case "Bisección":
+                    System.out.println("Biseccion");
+                    break;
+                case "Punto fijo":
+                    System.out.println("Punto Fijo");
+                    break;
+                case "Newton-Raphson":
+                    System.out.println("Newton");
+                    break;
+                case "Lagrange":
+                    System.out.println("Lagrange");
+                    break;
+            }
+            
+                });
+        
     }
+    
+   
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        combo();
     }    
     
 }
