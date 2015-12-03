@@ -7,31 +7,41 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="474.0" prefWidth="543.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mnproyect.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="655.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mnproyect.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <SplitPane dividerPositions="0.19736842105263158" orientation="VERTICAL" prefHeight="536.0" prefWidth="543.0">
+      <SplitPane dividerPositions="0.19736842105263158" orientation="VERTICAL" prefHeight="655.0" prefWidth="602.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ComboBox fx:id="cb_opcion" layoutX="196.0" layoutY="34.0" prefWidth="150.0" promptText="Elija una opción" />
+                  <ComboBox fx:id="cb_opcion" layoutX="87.0" layoutY="38.0" prefWidth="150.0" promptText="Elija una opción" />
+                  <ComboBox fx:id="cb_trunc" layoutX="330.0" layoutY="38.0" prefHeight="25.0" prefWidth="166.0" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="381.0" prefWidth="541.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="553.0" prefWidth="584.0" SplitPane.resizableWithParent="false">
                <children>
-                  <Pane fx:id="pane_Bi" prefHeight="426.0" prefWidth="543.0">
+                  <Pane fx:id="pane_punto" prefHeight="521.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="lbl_first" layoutX="102.0" layoutY="127.0" text="X" />
+                        <TextField fx:id="txt_a" layoutX="202.0" layoutY="118.0" prefHeight="34.0" prefWidth="311.0" />
+                        <Label fx:id="lbl_tol1" layoutX="95.0" layoutY="323.0" text="TOL" />
+                        <TextField fx:id="txt_tol" layoutX="202.0" layoutY="315.0" prefHeight="34.0" prefWidth="311.0" />
+                        <Label fx:id="lbl_n1" layoutX="101.0" layoutY="229.0" text="N" />
+                        <TextField fx:id="txt_n" layoutX="202.0" layoutY="212.0" prefHeight="34.0" prefWidth="311.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="pane_Bi" prefHeight="426.0" prefWidth="543.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <TextField fx:id="txt_a" layoutX="189.0" layoutY="61.0" prefHeight="34.0" prefWidth="311.0" />
-                        <Label layoutX="79.0" layoutY="69.0" text="A" />
+                        <Label fx:id="lbl_first" layoutX="79.0" layoutY="69.0" text="A" />
                         <TextField fx:id="txt_b" layoutX="189.0" layoutY="124.0" prefHeight="34.0" prefWidth="311.0" />
-                        <Label layoutX="79.0" layoutY="133.0" text="B" />
+                        <Label fx:id="lbl_b" layoutX="79.0" layoutY="133.0" text="B" />
                         <TextField fx:id="txt_f" layoutX="189.0" layoutY="189.0" prefHeight="34.0" prefWidth="311.0" />
-                        <Label layoutX="79.0" layoutY="198.0" text="f(x)" />
-                        <TextField fx:id="txt_n" layoutX="189.0" layoutY="257.0" prefHeight="34.0" prefWidth="311.0" />
-                        <Label layoutX="78.0" layoutY="266.0" text="N" />
-                        <TextField fx:id="txt_tol" layoutX="189.0" layoutY="321.0" prefHeight="34.0" prefWidth="311.0" />
-                        <Label layoutX="78.0" layoutY="330.0" text="TOL" />
-                        <Button fx:id="btn_submit" layoutX="246.0" layoutY="379.0" mnemonicParsing="false" text="OK" />
+                        <Label fx:id="lbl_f" layoutX="79.0" layoutY="198.0" text="f(x)" />
+                        <TextField fx:id="txt_n" layoutX="189.0" layoutY="282.0" prefHeight="34.0" prefWidth="311.0" />
+                        <Label fx:id="lbl_n" layoutX="78.0" layoutY="291.0" text="N" />
+                        <TextField fx:id="txt_tol" layoutX="189.0" layoutY="380.0" prefHeight="34.0" prefWidth="311.0" />
+                        <Label fx:id="lbl_tol" layoutX="72.0" layoutY="397.0" text="TOL" />
                      </children>
                   </Pane>
                   <Label fx:id="lbl_metodos" layoutX="47.0" layoutY="138.0" text="MÉTODOS" textFill="#0000002d" visible="false">
@@ -39,6 +49,19 @@
                         <Font name="Copperplate Gothic Light" size="79.0" />
                      </font>
                   </Label>
+                  <Button fx:id="btn_submit" layoutX="309.0" layoutY="479.0" mnemonicParsing="false" text="OK" />
+                  <Pane fx:id="pane_Newton" prefHeight="521.0" prefWidth="600.0" visible="false">
+                     <children>
+                        <TextField fx:id="txt_fprima" layoutX="210.0" layoutY="178.0" prefHeight="34.0" prefWidth="311.0" />
+                        <Label fx:id="lbl_fprima" layoutX="122.0" layoutY="195.0" text="f'(x)" />
+                        <Label fx:id="lbl_tol" layoutX="122.0" layoutY="360.0" text="TOL" />
+                        <TextField fx:id="txt_tol" layoutX="210.0" layoutY="351.0" prefHeight="34.0" prefWidth="311.0" />
+                        <Label fx:id="lbl_n" layoutX="128.0" layoutY="270.0" text="N" />
+                        <TextField fx:id="txt_n" layoutX="210.0" layoutY="261.0" prefHeight="34.0" prefWidth="311.0" />
+                        <Label fx:id="lbl_f" layoutX="124.0" layoutY="102.0" text="f(x)" />
+                        <TextField fx:id="txt_f" layoutX="210.0" layoutY="93.0" prefHeight="34.0" prefWidth="311.0" />
+                     </children>
+                  </Pane>
                </children></AnchorPane>
         </items>
       </SplitPane>
