@@ -16,6 +16,7 @@
                <children>
                   <ComboBox fx:id="cb_opcion" layoutX="87.0" layoutY="38.0" prefWidth="150.0" promptText="Elija una opción" />
                   <ComboBox fx:id="cb_trunc" layoutX="330.0" layoutY="38.0" prefHeight="25.0" prefWidth="166.0" />
+                  <ComboBox fx:id="cb_paro" layoutX="225.0" layoutY="79.0" prefWidth="150.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="553.0" prefWidth="584.0" SplitPane.resizableWithParent="false">
@@ -32,15 +33,15 @@
                   </Pane>
                   <Pane fx:id="pane_Bi" prefHeight="426.0" prefWidth="543.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TextField fx:id="txt_a" layoutX="189.0" layoutY="61.0" prefHeight="34.0" prefWidth="311.0" />
+                        <TextField fx:id="txt_aBi" layoutX="189.0" layoutY="61.0" prefHeight="34.0" prefWidth="311.0" />
                         <Label fx:id="lbl_first" layoutX="79.0" layoutY="69.0" text="A" />
-                        <TextField fx:id="txt_b" layoutX="189.0" layoutY="124.0" prefHeight="34.0" prefWidth="311.0" />
+                        <TextField fx:id="txt_bBi" layoutX="189.0" layoutY="124.0" prefHeight="34.0" prefWidth="311.0" />
                         <Label fx:id="lbl_b" layoutX="79.0" layoutY="133.0" text="B" />
-                        <TextField fx:id="txt_f" layoutX="189.0" layoutY="189.0" prefHeight="34.0" prefWidth="311.0" />
+                        <TextField fx:id="txt_fBi" layoutX="189.0" layoutY="189.0" prefHeight="34.0" prefWidth="311.0" />
                         <Label fx:id="lbl_f" layoutX="79.0" layoutY="198.0" text="f(x)" />
-                        <TextField fx:id="txt_n" layoutX="189.0" layoutY="282.0" prefHeight="34.0" prefWidth="311.0" />
+                        <TextField fx:id="txt_nBi" layoutX="189.0" layoutY="282.0" prefHeight="34.0" prefWidth="311.0" />
                         <Label fx:id="lbl_n" layoutX="78.0" layoutY="291.0" text="N" />
-                        <TextField fx:id="txt_tol" layoutX="189.0" layoutY="380.0" prefHeight="34.0" prefWidth="311.0" />
+                        <TextField fx:id="txt_tolBi" layoutX="189.0" layoutY="380.0" prefHeight="34.0" prefWidth="311.0" />
                         <Label fx:id="lbl_tol" layoutX="72.0" layoutY="397.0" text="TOL" />
                      </children>
                   </Pane>
@@ -49,15 +50,15 @@
                         <Font name="Copperplate Gothic Light" size="79.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btn_submit" layoutX="309.0" layoutY="479.0" mnemonicParsing="false" text="OK" />
-                  <Pane fx:id="pane_Newton" prefHeight="521.0" prefWidth="600.0" visible="false">
+                  <Button fx:id="btn_submit" layoutX="309.0" layoutY="479.0" mnemonicParsing="false" onAction="#bisecc" text="OK" />
+                  <Pane fx:id="pane_Newton" layoutX="9.0" prefHeight="521.0" prefWidth="600.0" visible="false">
                      <children>
                         <TextField fx:id="txt_fprima" layoutX="210.0" layoutY="178.0" prefHeight="34.0" prefWidth="311.0" />
                         <Label fx:id="lbl_fprima" layoutX="122.0" layoutY="195.0" text="f'(x)" />
                         <Label fx:id="lbl_tol" layoutX="122.0" layoutY="360.0" text="TOL" />
-                        <TextField fx:id="txt_tol" layoutX="210.0" layoutY="351.0" prefHeight="34.0" prefWidth="311.0" />
+                        <TextField fx:id="txt_tolNewton" layoutX="210.0" layoutY="351.0" prefHeight="34.0" prefWidth="311.0" />
                         <Label fx:id="lbl_n" layoutX="128.0" layoutY="270.0" text="N" />
-                        <TextField fx:id="txt_n" layoutX="210.0" layoutY="261.0" prefHeight="34.0" prefWidth="311.0" />
+                        <TextField fx:id="txt_nNewton" layoutX="210.0" layoutY="261.0" prefHeight="34.0" prefWidth="311.0" />
                         <Label fx:id="lbl_f" layoutX="124.0" layoutY="102.0" text="f(x)" />
                         <TextField fx:id="txt_f" layoutX="210.0" layoutY="93.0" prefHeight="34.0" prefWidth="311.0" />
                      </children>
