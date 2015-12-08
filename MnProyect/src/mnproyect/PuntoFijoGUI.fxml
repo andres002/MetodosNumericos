@@ -7,18 +7,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mnproyect.PuntoFijoGUIController">
+<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mnproyect.PuntoFijoGUIController">
     <children>
-      <Label layoutX="218.0" layoutY="26.0" text="PUNTO FIJO">
+      <Label layoutX="219.0" layoutY="26.0" text="PUNTO FIJO">
          <font>
             <Font name="DejaVu Sans Bold" size="25.0" />
          </font>
       </Label>
-      <ComboBox fx:id="IteraTol" layoutX="74.0" layoutY="86.0" prefWidth="150.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></ComboBox>
-      <ComboBox fx:id="serultOp" layoutX="376.0" layoutY="86.0" prefWidth="150.0">
+      <ComboBox fx:id="serultOp" layoutX="225.0" layoutY="83.0" prefWidth="150.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>

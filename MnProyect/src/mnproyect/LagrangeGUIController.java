@@ -28,7 +28,7 @@ import javafx.stage.Stage;
  */
 public class LagrangeGUIController implements Initializable {
 
-    @FXML private ComboBox IteraTol,serultOp,nodesOp;
+    @FXML private ComboBox serultOp,nodesOp;
     @FXML private TextField x0Entry,x1Entry,x2Entry,funcionEntry,nEntry,tolEntry;
     @FXML private TextArea textArea;
     
@@ -40,21 +40,9 @@ public class LagrangeGUIController implements Initializable {
         nodesOp.getItems().addAll(
         "1","2","3");
         nodesOp.setValue("1");
-        IteraTol.getItems().addAll(
-        "Tolerancia","Iteraciones");
-        IteraTol.setValue("Tolerancia");
         serultOp.getItems().addAll(
         "Truncamiento","Redondeo");
         serultOp.setValue("Redondeo");
-        IteraTol.setOnAction(a -> {
-            if (IteraTol.getValue().equals("Tolerancia")) {
-                nEntry.setDisable(true);
-                tolEntry.setDisable(false);
-            } else {
-                tolEntry.setDisable(true);
-                nEntry.setDisable(false);
-            }
-        });
         nodesOp.setOnAction(event -> {
             if (nodesOp.getValue().equals("1")) {
                 x0Entry.setDisable(false);

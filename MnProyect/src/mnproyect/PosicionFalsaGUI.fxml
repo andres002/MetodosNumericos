@@ -15,11 +15,7 @@
             <Font name="DejaVu Sans Bold" size="25.0" />
          </font>
       </Label>
-      <ComboBox fx:id="IteraTol" layoutX="74.0" layoutY="86.0" prefWidth="150.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></ComboBox>
-      <ComboBox fx:id="serultOp" layoutX="376.0" layoutY="86.0" prefWidth="150.0">
+      <ComboBox fx:id="serultOp" layoutX="212.0" layoutY="86.0" prefWidth="150.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>

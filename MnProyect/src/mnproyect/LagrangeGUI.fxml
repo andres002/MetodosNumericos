@@ -7,18 +7,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="495.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="mnproyect.LagrangeGUIController">
+<AnchorPane id="AnchorPane" prefHeight="495.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mnproyect.LagrangeGUIController">
     <children>
       <Label layoutX="224.0" layoutY="29.0" text="LAGRANGE">
          <font>
             <Font name="DejaVu Sans Bold" size="25.0" />
          </font>
       </Label>
-      <ComboBox fx:id="IteraTol" layoutX="42.0" layoutY="86.0" prefWidth="150.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></ComboBox>
-      <ComboBox fx:id="serultOp" layoutX="409.0" layoutY="86.0" prefWidth="150.0">
+      <ComboBox fx:id="serultOp" layoutX="377.0" layoutY="86.0" prefWidth="150.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
@@ -41,7 +37,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ComboBox fx:id="nodesOp" layoutX="225.0" layoutY="86.0" prefWidth="150.0" />
+      <ComboBox fx:id="nodesOp" layoutX="82.0" layoutY="86.0" prefWidth="150.0" />
       <TextField layoutX="76.0" layoutY="167.0" fx:id="x0Entry" />
       <Label layoutX="45.0" layoutY="256.0" text="x2" />
    </children>

@@ -28,7 +28,7 @@ import javafx.stage.Stage;
  */
 public class NewtonRaphsonGUIController implements Initializable {
     
-    @FXML private ComboBox IteraTol,serultOp;
+    @FXML private ComboBox serultOp;
     @FXML private TextField XEntry,funcionEntry,derivadaEntry,nEntry,tolEntry;
     @FXML private TextArea textArea;
     
@@ -61,21 +61,9 @@ public class NewtonRaphsonGUIController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        IteraTol.getItems().addAll(
-        "Tolerancia","Iteraciones");
-        IteraTol.setValue("Tolerancia");
         serultOp.getItems().addAll(
         "Truncamiento","Redondeo");
         serultOp.setValue("Redondeo");
-        IteraTol.setOnAction(a -> {
-            if (IteraTol.getValue().equals("Tolerancia")) {
-                nEntry.setDisable(true);
-                tolEntry.setDisable(false);
-            } else {
-                tolEntry.setDisable(true);
-                nEntry.setDisable(false);
-            }
-        });
     }    
     
 }
