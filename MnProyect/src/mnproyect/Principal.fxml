@@ -1,11 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mnproyect.PrincipalController">
-    
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="590.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mnproyect.PrincipalController">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="601.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@Wallpaper.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#60bfc938" height="500.0" stroke="BLACK" strokeType="INSIDE" width="609.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="0.0" />
+      <Button fx:id="btn_bi" layoutX="43.0" layoutY="99.0" mnemonicParsing="false" onAction="#openWindowBi" prefHeight="34.0" prefWidth="106.0" text="Bisección">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btn_pu" layoutX="238.0" layoutY="99.0" mnemonicParsing="false" onAction="#openWindowPu" prefHeight="34.0" prefWidth="106.0" text="Punto Fijo">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btn_new" layoutX="426.0" layoutY="99.0" mnemonicParsing="false" onAction="#openWindowNew" prefHeight="34.0" prefWidth="135.0" text="Newton Raphson">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btn_lag" layoutX="43.0" layoutY="225.0" mnemonicParsing="false" onAction="#openWindowLag" prefHeight="34.0" prefWidth="106.0" text="Lagrange">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btn_po" layoutX="248.0" layoutY="225.0" mnemonicParsing="false" onAction="#openWindowPo" prefHeight="34.0" prefWidth="106.0" text="Posicion Falsa">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btn_sec" layoutX="441.0" layoutY="225.0" mnemonicParsing="false" onAction="#openWindowSec" prefHeight="34.0" prefWidth="106.0" text="Secante">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btn_acerca" layoutX="73.0" layoutY="362.0" mnemonicParsing="false" onAction="#openWindowAcerca" text="Acerca De">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btn_help" layoutX="441.0" layoutY="362.0" mnemonicParsing="false" onAction="#openWindowHelp" text="Ayuda">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
 </AnchorPane>
