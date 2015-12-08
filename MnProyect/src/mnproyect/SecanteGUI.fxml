@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="497.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="mnproyect.SecanteGUIController">
+    <children>
+      <Label layoutX="224.0" layoutY="24.0" text="BISECCION">
+         <font>
+            <Font name="DejaVu Sans Bold" size="25.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="IteraTol" layoutX="74.0" layoutY="86.0" prefWidth="150.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <ComboBox fx:id="serultOp" layoutX="376.0" layoutY="86.0" prefWidth="150.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <TextField layoutX="75.0" layoutY="152.0" fx:id="x0Entry" />
+      <TextField layoutX="75.0" layoutY="196.0" fx:id="x1Entry" />
+      <TextField fx:id="funcionEntry" layoutX="75.0" layoutY="238.0" />
+      <TextField fx:id="nEntry" layoutX="75.0" layoutY="321.0" />
+      <TextField fx:id="tolEntry" layoutX="75.0" layoutY="362.0" />
+      <Label layoutX="39.0" layoutY="156.0" text="X0" />
+      <Label layoutX="39.0" layoutY="200.0" text="X1" />
+      <Label layoutX="38.0" layoutY="242.0" text="f(x)" />
+      <Label layoutX="42.0" layoutY="325.0" text="N" />
+      <Label layoutX="36.0" layoutY="366.0" text="TOL" />
+      <Button layoutX="268.0" layoutY="267.0" mnemonicParsing="false" text="Calculate">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TextArea fx:id="textArea" editable="false" layoutX="359.0" layoutY="164.0" prefHeight="282.0" prefWidth="200.0" />
+      <Button layoutX="232.0" layoutY="446.0" mnemonicParsing="false" onAction="#openWindowBack" text="Regresar al Menú">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TextField fx:id="derivadaEntry" layoutX="75.0" layoutY="279.0" />
+      <Label layoutX="37.0" layoutY="283.0" text="f'(x)" />
+   </children>
+</AnchorPane>
