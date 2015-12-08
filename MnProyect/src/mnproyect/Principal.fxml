@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
@@ -17,45 +18,76 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#60bfc938" height="500.0" stroke="BLACK" strokeType="INSIDE" width="609.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="0.0" />
-      <Button fx:id="btn_bi" layoutX="43.0" layoutY="99.0" mnemonicParsing="false" onAction="#openWindowBi" prefHeight="34.0" prefWidth="106.0" text="Bisección">
+      <Button fx:id="btn_acerca" layoutX="126.0" layoutY="467.0" mnemonicParsing="false" onAction="#openWindowAcerca" text="Acerca De">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btn_pu" layoutX="238.0" layoutY="99.0" mnemonicParsing="false" onAction="#openWindowPu" prefHeight="34.0" prefWidth="106.0" text="Punto Fijo">
+      <Button fx:id="btn_help" layoutX="466.0" layoutY="454.0" mnemonicParsing="false" onAction="#openWindowHelp" text="Ayuda">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btn_new" layoutX="426.0" layoutY="99.0" mnemonicParsing="false" onAction="#openWindowNew" prefHeight="34.0" prefWidth="135.0" text="Newton Raphson">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="btn_lag" layoutX="43.0" layoutY="225.0" mnemonicParsing="false" onAction="#openWindowLag" prefHeight="34.0" prefWidth="106.0" text="Lagrange">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="btn_po" layoutX="248.0" layoutY="225.0" mnemonicParsing="false" onAction="#openWindowPo" prefHeight="34.0" prefWidth="106.0" text="Posicion Falsa">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="btn_sec" layoutX="441.0" layoutY="225.0" mnemonicParsing="false" onAction="#openWindowSec" prefHeight="34.0" prefWidth="106.0" text="Secante">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="btn_acerca" layoutX="73.0" layoutY="362.0" mnemonicParsing="false" onAction="#openWindowAcerca" text="Acerca De">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="btn_help" layoutX="441.0" layoutY="362.0" mnemonicParsing="false" onAction="#openWindowHelp" text="Ayuda">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
+      <GridPane alignment="TOP_CENTER" layoutX="41.0" layoutY="94.0" prefHeight="312.0" prefWidth="527.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btn_bi" mnemonicParsing="false" onAction="#openWindowBi" opacity="0.6" prefHeight="85.0" prefWidth="238.0" style="-fx-background-color: #50a153; -fx-border-width: 5 5 5 5; -fx-border-color: black; -fx-background-radius: 36; -fx-border-radius: 25;" text="Bisección" textFill="#2f2f2f">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Arial Black" size="29.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_pu" mnemonicParsing="false" onAction="#openWindowPu" opacity="0.6" prefHeight="82.0" prefWidth="235.0" style="-fx-background-color: #50a153; -fx-border-color: Black; -fx-border-width: 5; -fx-border-radius: 25; -fx-background-radius: 36;" text="Punto Fijo" GridPane.columnIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Arial Black" size="29.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_new" mnemonicParsing="false" onAction="#openWindowNew" opacity="0.6" prefHeight="88.0" prefWidth="242.0" style="-fx-background-color: #50a153; -fx-border-color: Black; -fx-border-width: 5; -fx-border-radius: 25; -fx-background-radius: 37;" text="Newton Raphson" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Arial Black" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_lag" mnemonicParsing="false" onAction="#openWindowLag" opacity="0.6" prefHeight="86.0" prefWidth="232.0" style="-fx-background-color: #50a153; -fx-border-color: Black; -fx-border-width: 5; -fx-border-radius: 25; -fx-background-radius: 37;" text="Lagrange" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Arial Black" size="29.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_po" mnemonicParsing="false" onAction="#openWindowPo" opacity="0.6" prefHeight="88.0" prefWidth="246.0" style="-fx-background-color: #50a153; -fx-border-color: Black; -fx-border-width: 5; -fx-border-radius: 25; -fx-background-radius: 37;" text="Posicion Falsa" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_sec" mnemonicParsing="false" onAction="#openWindowSec" opacity="0.6" prefHeight="87.0" prefWidth="242.0" style="-fx-background-color: #50a153; -fx-border-color: Black; -fx-border-width: 5; -fx-border-radius: 25; -fx-background-radius: 37;" text="Secante" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Arial Black" size="27.0" />
+               </font>
+            </Button>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
