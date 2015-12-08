@@ -6,6 +6,7 @@
 package mnproyect;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -16,6 +17,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -29,11 +32,66 @@ import javafx.stage.Stage;
 public class BiseccionGUIController implements Initializable {
     
     
-    @FXML private ComboBox IteraTol,serultOp;
+    @FXML private ComboBox serultOp;
     @FXML private TextField aEntry,bEntry,funcionEntry,nEntry,tolEntry;
     @FXML private TextArea textArea;
+
+    private Double resultado;
+    private Double x;
+    private BigDecimal a;
+    private BigDecimal b;
+    private BigDecimal fa;
+    private Parser f = new Parser();
+    private Double tol;
     
+    @FXML
+    private void verficar(){
+        if (aEntry.getText().replaceAll(" ", "").equals("")||
+                bEntry.getText().replaceAll(" ", "").equals("") ) {
+            
+        }
+        try{
+            double aux = Double.parseDouble(aEntry.getText().replaceAll(" ", ""));
+            double aux2 = Double.parseDouble(bEntry.getText().replaceAll(" ", ""));
+            setVariables();
+        }catch(Exception E){
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Ha introducido los datos mal");
+            alert.setContentText("Los Campos A y B reciben solamente numeros");
+            alert.showAndWait();
+            
+        }
+        
+    }
     
+    private void setVariables(){
+        //a = new BigDecimal(aEntry.getText().replaceAll(" ", ""));
+        f.X = aEntry.getText().replaceAll(" ", "");
+        b = new BigDecimal(bEntry.getText().replaceAll(" ", ""));
+        f.function = funcionEntry.getText();
+        
+        switch(serultOp.getValue()+""){
+            case "Truncamiento":
+                f.opcion = 2;
+                break;
+            case "Redondeo":
+                f.opcion = 1;
+                break;
+            case "Todos los dígitos":
+                f.opcion = 3;
+                break;
+        }
+    }
+    
+    private void core(){
+        int i = 1;
+        fa = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
+        
+        
+        
+        
+    }
     
     @FXML
     public void openWindowBack(ActionEvent e) {
@@ -64,21 +122,10 @@ public class BiseccionGUIController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        IteraTol.getItems().addAll(
-        "Tolerancia","Iteraciones");
-        IteraTol.setValue("Tolerancia");
         serultOp.getItems().addAll(
-        "Truncamiento","Redondeo");
+        "Truncamiento","Redondeo", "Todos los dígitos");
         serultOp.setValue("Redondeo");
-        IteraTol.setOnAction(a -> {
-            if (IteraTol.getValue().equals("Tolerancia")) {
-                nEntry.setDisable(true);
-                tolEntry.setDisable(false);
-            } else {
-                tolEntry.setDisable(true);
-                nEntry.setDisable(false);
-            }
-        });
+        nEntry.setDisable(true);
     }    
     
 }

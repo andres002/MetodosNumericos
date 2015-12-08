@@ -16,17 +16,19 @@ import java.util.Stack;
  */
 public class Parser {
 
-    String function = "";
+    //2. truncamiento, 1.- redondeo, 3.- Todos los digitos
+    public String function = "";
     int k = 3;
-    int opcion = 1;
+    public int opcion = 1;
     double value = 0.0;
+    public String X = "";
 
     public void cambiavariables() {
-        function.replace("X", this.value + "");
+
     }
 
     /* ALGORITMO DE CAMBIO DE EXPRESIONES DE INFIJO A POSTFIJO */
-    public void Postfijo(String expr) {
+    public String Postfijo(String expr) {
         String[] arrayInfix = expr.split(" ");
 
         //Declaración de las pilas
@@ -81,14 +83,19 @@ public class Parser {
             //Mostrar resultados:
             System.out.println("Expresion Infija: " + infix);
             System.out.println("Expresion Postfija: " + postfix);
+            return postfix;
 
         } catch (Exception ex) {
             System.out.println("Error en la expresión algebraica");
             System.err.println(ex);
         }
+        return "";
     }
 
-    public String depurar(String s) {
+    public String depurar() {
+        String s = "";
+        this.function = this.function.replace("X", this.X + "");
+        s = this.function;
         s = s.replaceAll("pi", "3.141592653589793");
         s = s.replaceAll("e", "2.71828182846");
         s = s.replaceAll("\\s+", ""); //Elimina espacios en blanco
@@ -197,10 +204,10 @@ public class Parser {
         return true;
     }
 
-    public void Resultado(String expr) {
-        expr.replaceAll("n", "-");
+    public String Resultado(String expr) {
+        expr = expr.replaceAll("m", "-");
         String[] post = expr.split(" ");
-        
+
         //Declaración de las pilas
         Stack< String> E = new Stack< String>(); //Pila entrada
         Stack< String> P = new Stack< String>(); //Pila de operandos
@@ -229,6 +236,7 @@ public class Parser {
         //Mostrar resultados:
         System.out.println("Expresion: " + expr);
         System.out.println("Resultado: " + P.peek());
+        return P.peek();
 
     }
 
@@ -322,4 +330,5 @@ public class Parser {
         }
         return numero;
     }
+
 }
