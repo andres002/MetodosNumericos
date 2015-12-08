@@ -33,7 +33,7 @@ public class PrincipalController implements Initializable {
 
     @FXML
     public void openWindowBi(ActionEvent e) {
-        //openWindowWithOption("BiseccionGUI.fxml");
+        openWindowWithOption("BiseccionGUI.fxml");
     }
     
      @FXML
@@ -74,7 +74,9 @@ public class PrincipalController implements Initializable {
     
 
     private void openWindowWithOption(String file) {
-
+         
+        Stage stage2 = (Stage) btn_help.getScene().getWindow();
+        stage2.close();
         Stage stage = new Stage();
         Parent root = null;
         try {
