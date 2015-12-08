@@ -12,35 +12,37 @@ import java.util.Scanner;
  * @author Ernesto
  */
 public class PuntoFijo {
+    private float inicialP;
+    private float tol;
+    private int n;
+    private float p;
     
-    static Double resultado;
-	
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		PuntoFijo pf = new PuntoFijo();
-		System.out.println("Introduzca el valor inicial de x");
-		resultado = sc.nextDouble();
-		
-		pf.metodoPF();
-	}
-
-	private void metodoPF(){
-		int i=0;
-
-		while(i<15){
-			resultado = funcionPF(resultado);
-			//System.out.println("El resultado es: "+resultado);
-			i++;
-		}
-		System.out.println("El resultado es: "+resultado);
-	}
-
-	private Double funcionPF(Double i){
-		//Double resultado= Math.pow(i,3)-3;
-		Double resultado = Math.pow(2.718281828,(-1.0)*i);
-
-		return resultado;
-	}
-	
+    public PuntoFijo(){
+        this.inicialP = 0;
+        this.n = 0;
+        this.tol = 0;
+    }
+        
+    public PuntoFijo(float p,float tol,int n){
+        this.inicialP = p;
+        this.tol = tol;
+        this.n = n;
+    }
     
+    /*public double calculate(){
+        int i = 1;
+        while (i <= this.n) {            
+            this.p = funcion.evauate(inicialP);
+            if (Math.abs(this.p - this.inicialP) < this.tol) {
+                return this.p;
+            }
+            i = i+1;
+            this.inicialP = this.p;
+        }
+        System.err.println("‘The method failed after N iterations, N =" + this.n);
+        return 0;
+    }*/
+    
+
+	
 }
