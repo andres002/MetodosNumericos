@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.Node?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="506.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mnproyect.PosicionFalsaGUIController">
+        <children>
+      <Label layoutX="183.0" layoutY="25.0" text="POSICION FALSA">
+         <font>
+            <Font name="DejaVu Sans Bold" size="25.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="IteraTol" layoutX="74.0" layoutY="86.0" prefWidth="150.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <ComboBox fx:id="serultOp" layoutX="376.0" layoutY="86.0" prefWidth="150.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <TextField fx:id="p0Entry" layoutX="75.0" layoutY="175.0" />
+      <TextField fx:id="p1Entry" layoutX="75.0" layoutY="227.0" />
+      <TextField fx:id="funcionEntry" layoutX="75.0" layoutY="279.0" />
+      <TextField fx:id="nEntry" layoutX="75.0" layoutY="333.0" />
+      <TextField fx:id="tolEntry" layoutX="75.0" layoutY="383.0" />
+      <Label layoutX="36.0" layoutY="179.0" text="P0" />
+      <Label layoutX="36.0" layoutY="231.0" text="P1" />
+      <Label layoutX="34.0" layoutY="283.0" text="f(x)" />
+      <Label layoutX="38.0" layoutY="337.0" text="N" />
+      <Label layoutX="36.0" layoutY="387.0" text="TOL" />
+      <Button layoutX="268.0" layoutY="267.0" mnemonicParsing="false" text="Calculate">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TextArea fx:id="textArea" editable="false" layoutX="359.0" layoutY="164.0" prefHeight="282.0" prefWidth="200.0" />
+      <Button layoutX="232.0" layoutY="446.0" mnemonicParsing="false" onAction="#openWindowBack" text="Regresar al Menú">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </children>
+</AnchorPane>
