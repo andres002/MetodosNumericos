@@ -18,7 +18,7 @@ public class Parser {
 
     //2. truncamiento, 1.- redondeo, 3.- Todos los digitos
     public String function = "";
-    int k = 3;
+    int k = 6;
     public int opcion = 1;
     double value = 0.0;
     public String X = "";
@@ -94,8 +94,9 @@ public class Parser {
 
     public String depurar() {
         String s = "";
-        this.function = this.function.replace("X", this.X + "");
+        //this.function = this.function.replace("x", this.X + "");
         s = this.function;
+        s = s.replace("x", this.X + "");
         s = s.replaceAll("pi", "3.141592653589793");
         s = s.replaceAll("e", "2.71828182846");
         s = s.replaceAll("\\s+", ""); //Elimina espacios en blanco

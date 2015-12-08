@@ -28,7 +28,7 @@
       <Label layoutX="34.0" layoutY="283.0" text="f(x)" />
       <Label layoutX="38.0" layoutY="337.0" text="N" />
       <Label layoutX="36.0" layoutY="387.0" text="TOL" />
-      <Button layoutX="268.0" layoutY="267.0" mnemonicParsing="false" text="Calculate">
+      <Button layoutX="268.0" layoutY="267.0" mnemonicParsing="false" onAction="#verficar" text="Calculate">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
