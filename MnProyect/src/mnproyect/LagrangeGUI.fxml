@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="495.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="mnproyect.LagrangeGUIController">
+    <children>
+      <Label layoutX="224.0" layoutY="29.0" text="LAGRANGE">
+         <font>
+            <Font name="DejaVu Sans Bold" size="25.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="IteraTol" layoutX="42.0" layoutY="86.0" prefWidth="150.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <ComboBox fx:id="serultOp" layoutX="409.0" layoutY="86.0" prefWidth="150.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <TextField layoutX="76.0" layoutY="210.0" fx:id="x1Entry" />
+      <TextField layoutX="76.0" layoutY="252.0" fx:id="x2Entry" />
+      <TextField fx:id="funcionEntry" layoutX="76.0" layoutY="290.0" />
+      <TextField fx:id="nEntry" layoutX="76.0" layoutY="328.0" />
+      <TextField fx:id="tolEntry" layoutX="76.0" layoutY="368.0" />
+      <Label layoutX="46.0" layoutY="171.0" text="x0" />
+      <Label layoutX="46.0" layoutY="214.0" text="x1" />
+      <Label layoutX="43.0" layoutY="294.0" text="f(x)" />
+      <Label layoutX="47.0" layoutY="332.0" text="N" />
+      <Label layoutX="41.0" layoutY="372.0" text="TOL" />
+      <Button layoutX="268.0" layoutY="267.0" mnemonicParsing="false" text="Calculate">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TextArea fx:id="textArea" editable="false" layoutX="359.0" layoutY="164.0" prefHeight="282.0" prefWidth="200.0" />
+      <Button layoutX="232.0" layoutY="446.0" mnemonicParsing="false" onAction="#openWindowBack" text="Regresar al Menú">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <ComboBox fx:id="nodesOp" layoutX="225.0" layoutY="86.0" prefWidth="150.0" />
+      <TextField layoutX="76.0" layoutY="167.0" fx:id="x0Entry" />
+      <Label layoutX="45.0" layoutY="256.0" text="x2" />
+   </children>
+</AnchorPane>
