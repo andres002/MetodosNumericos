@@ -35,46 +35,49 @@ public class PrincipalController implements Initializable {
     public void openWindowBi(ActionEvent e) {
         openWindowWithOption("BiseccionGUI.fxml");
     }
-    
-     @FXML
+
+    @FXML
     public void openWindowPu(ActionEvent e) {
         openWindowWithOption("PuntoFijoGUI.fxml");
     }
-     @FXML
+
+    @FXML
     public void openWindowNew(ActionEvent e) {
         openWindowWithOption("NewtonRaphsonGUI.fxml");
     }
-    
-     @FXML
+
+    @FXML
     public void openWindowLag(ActionEvent e) {
-        //openWindowWithOption("LagrangeGUI.fxml");
+        openWindowWithOption("LagrangeGUI.fxml");
     }
+
     @FXML
     public void openWindowPo(ActionEvent e) {
-        //openWindowWithOption("PosicionGUI.fxml");
+        openWindowWithOption("PosicionFalsaGUI.fxml");
     }
+
     @FXML
     public void openWindowSec(ActionEvent e) {
-        //openWindowWithOption("SecanteGUI.fxml");
+        openWindowWithOption("SecanteGUI.fxml");
     }
+
     @FXML
     public void openWindowAcerca(ActionEvent e) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("ACERCA DE...");
         alert.setHeaderText("UNIVERSIDAD POLITÉCNICA DE CHIAPAS");
         alert.setContentText("\t METODOS NUMÉRICOS\n\nAndrés Aguilar Cruz 143385\nErnesto Sandoval Becerra 143374\n"
-                + "Carlos Alejandro Zenteno Robles 143382\n Luis Fernando Herrera Pimentel 143402");  
+                + "Carlos Alejandro Zenteno Robles 143382\n Luis Fernando Herrera Pimentel 143402");
         alert.showAndWait();
     }
-    
+
     @FXML
     public void openWindowHelp(ActionEvent e) {
         //openWindowWithOption("HelpGUI.fxml");
     }
-    
 
     private void openWindowWithOption(String file) {
-         
+
         Stage stage2 = (Stage) btn_help.getScene().getWindow();
         stage2.close();
         Stage stage = new Stage();
@@ -96,7 +99,65 @@ public class PrincipalController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        btn_bi.setOnMouseEntered(a -> {
+            btn_bi.setPrefWidth(250);
+            btn_bi.setPrefHeight(100);
+        });
+        
+         btn_bi.setOnMouseExited(a -> {
+            btn_bi.setPrefWidth(238);
+            btn_bi.setPrefHeight(85);
+        });
+
+        btn_lag.setOnMouseEntered(a -> {
+            btn_lag.setPrefWidth(250);
+            btn_lag.setPrefHeight(100);
+        });
+        
+        btn_lag.setOnMouseExited(a -> {
+            btn_lag.setPrefWidth(238);
+            btn_lag.setPrefHeight(85);
+        });
+
+        btn_new.setOnMouseEntered(a -> {
+            btn_new.setPrefWidth(250);
+            btn_new.setPrefHeight(100);
+        });
+        
+         btn_new.setOnMouseExited(a -> {
+            btn_new.setPrefWidth(235);
+            btn_new.setPrefHeight(85);
+        });
+
+        btn_po.setOnMouseEntered(a -> {
+            btn_po.setPrefWidth(250);
+            btn_po.setPrefHeight(100);
+        });
+        
+        btn_po.setOnMouseExited(a -> {
+            btn_po.setPrefWidth(235);
+            btn_po.setPrefHeight(85);
+        });
+
+        btn_pu.setOnMouseEntered(a -> {
+            btn_pu.setPrefWidth(250);
+            btn_pu.setPrefHeight(100);
+        });
+        
+        btn_pu.setOnMouseExited(a -> {
+            btn_pu.setPrefWidth(235);
+            btn_pu.setPrefHeight(85);
+        });
+
+        btn_sec.setOnMouseEntered(a -> {
+            btn_sec.setPrefWidth(250);
+            btn_sec.setPrefHeight(100);
+        });
+        
+         btn_sec.setOnMouseExited(a -> {
+            btn_sec.setPrefWidth(235);
+            btn_sec.setPrefHeight(85);
+        });
     }
 
 }
