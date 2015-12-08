@@ -42,7 +42,7 @@ public class PrincipalController implements Initializable {
     }
      @FXML
     public void openWindowNew(ActionEvent e) {
-        //openWindowWithOption("NewtonGUI.fxml");
+        openWindowWithOption("NewtonRaphsonGUI.fxml");
     }
     
      @FXML
