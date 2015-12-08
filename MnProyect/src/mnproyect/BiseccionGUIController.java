@@ -30,48 +30,64 @@ import javafx.stage.Stage;
  * @author Karlos
  */
 public class BiseccionGUIController implements Initializable {
-    
-    
-    @FXML private ComboBox serultOp;
-    @FXML private TextField aEntry,bEntry,funcionEntry,nEntry,tolEntry;
-    @FXML private TextArea textArea;
+
+    @FXML
+    private ComboBox serultOp;
+    @FXML
+    private TextField aEntry, bEntry, funcionEntry, nEntry, tolEntry;
+    @FXML
+    private TextArea textArea;
 
     private Double resultado;
-    private Double x;
+    //private Double x;
     private BigDecimal a;
     private BigDecimal b;
-    private BigDecimal fa;
+    private BigDecimal fa,fp;
     private Parser f = new Parser();
     private Double tol;
-    
+    private int n =0; 
+
     @FXML
-    private void verficar(){
-        if (aEntry.getText().replaceAll(" ", "").equals("")||
-                bEntry.getText().replaceAll(" ", "").equals("") ) {
-            
-        }
-        try{
-            double aux = Double.parseDouble(aEntry.getText().replaceAll(" ", ""));
-            double aux2 = Double.parseDouble(bEntry.getText().replaceAll(" ", ""));
-            setVariables();
-        }catch(Exception E){
+    private void verficar() {
+        if (!(aEntry.getText().replaceAll(" ", "").equals("")
+                || bEntry.getText().replaceAll(" ", "").equals("")
+                || funcionEntry.getText().replaceAll(" ", "").equals("")
+                || nEntry.getText().replaceAll(" ", "").equals("")
+                || tolEntry.getText().replaceAll(" ", "").equals(""))) {
+            try {
+                double aux = Double.parseDouble(aEntry.getText().replaceAll(" ", ""));
+                double aux2 = Double.parseDouble(bEntry.getText().replaceAll(" ", ""));
+                double aux3 = Double.parseDouble(tolEntry.getText().replaceAll(" ", ""));
+                int aux4 = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
+                setVariables();
+            } catch (Exception E) {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("ERROR");
+                alert.setHeaderText("Ha introducido los datos mal");
+                alert.setContentText("Los Campos A y B reciben solamente numeros");
+                alert.showAndWait();
+            }
+        }else{
             Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("ERROR");
-            alert.setHeaderText("Ha introducido los datos mal");
-            alert.setContentText("Los Campos A y B reciben solamente numeros");
-            alert.showAndWait();
-            
+                alert.setTitle("ERROR");
+                alert.setHeaderText("No ha introducido uno o mas datos");
+                alert.setContentText("Todos los campos deben ser rellenados");
+                alert.showAndWait();
         }
-        
+
     }
-    
-    private void setVariables(){
-        //a = new BigDecimal(aEntry.getText().replaceAll(" ", ""));
-        f.X = aEntry.getText().replaceAll(" ", "");
-        b = new BigDecimal(bEntry.getText().replaceAll(" ", ""));
-        f.function = funcionEntry.getText();
+
+    private void setVariables() {
         
-        switch(serultOp.getValue()+""){
+        f.X = f.redonTrunc(aEntry.getText().replaceAll(" ", ""));
+        a = new BigDecimal(aEntry.getText().replaceAll(" ", ""));
+        b = new BigDecimal(f.redonTrunc(bEntry.getText().replaceAll(" ", "")));
+        f.function = funcionEntry.getText();
+        this.tol = Double.parseDouble(tolEntry.getText().replaceAll(" ", ""));
+        this.n = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
+        
+
+        switch (serultOp.getValue() + "") {
             case "Truncamiento":
                 f.opcion = 2;
                 break;
@@ -82,24 +98,55 @@ public class BiseccionGUIController implements Initializable {
                 f.opcion = 3;
                 break;
         }
+        core();
     }
-    
-    private void core(){
+
+    private void core() {
         int i = 1;
         fa = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
+        BigDecimal p;
+        BigDecimal aux,aux2,num2;
+        num2 = new BigDecimal("2");
+        while(i<=this.n){
+            aux = new BigDecimal(f.redonTrunc(b.subtract(a)+""));
+            aux2 = new BigDecimal(f.redonTrunc(aux.divide(num2)+""));
+            p = new BigDecimal(f.redonTrunc(a.add(aux2)+""));
+            System.out.println("p----" + p);
+            f.X = p+"";
+            System.out.println("X------" + f.X);
+            fp = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
+            System.out.println("fp------" + fp.doubleValue());
+            System.out.println("aux2-------" + aux2.doubleValue());
+            System.out.println("tol-------" + tol);
+            if(fp.doubleValue()==0 || aux2.doubleValue() < tol){
+                textArea.setText(p.doubleValue()+"");
+                return;
+            }
+            i+=1;
+            aux=null;
+            aux = new BigDecimal(f.redonTrunc(fa.multiply(fp)+""));
+            if(aux.doubleValue() > 0){
+                this.a = p;
+                fa = fp;
+            }else{
+                b=p;
+            }
+        }
         
-        
-        
-        
+         Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("ERROR");
+                alert.setHeaderText("El metodo ha fallado");
+                alert.setContentText("El metodo falló despues de " + this.n + " Iteraciones");
+                alert.showAndWait();
     }
-    
+
     @FXML
     public void openWindowBack(ActionEvent e) {
         openWindowWithOption("Principal.fxml");
     }
-    
+
     private void openWindowWithOption(String file) {
-         
+
         Stage stage2 = (Stage) aEntry.getScene().getWindow();
         stage2.close();
         Stage stage = new Stage();
@@ -115,17 +162,16 @@ public class BiseccionGUIController implements Initializable {
         stage.show();
 
     }
-    
-    
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         serultOp.getItems().addAll(
-        "Truncamiento","Redondeo", "Todos los dígitos");
+                "Truncamiento", "Redondeo", "Todos los dígitos");
         serultOp.setValue("Redondeo");
-        nEntry.setDisable(true);
-    }    
-    
+
+    }
+
 }
