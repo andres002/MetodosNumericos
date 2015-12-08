@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="482.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="mnproyect.NewtonRaphsonGUIController">
+    <children>
+      <Label layoutX="172.0" layoutY="20.0" text="Newton - Raphson">
+         <font>
+            <Font name="DejaVu Sans Bold" size="25.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="IteraTol" layoutX="74.0" layoutY="86.0" prefWidth="150.0" />
+      <ComboBox fx:id="serultOp" layoutX="376.0" layoutY="86.0" prefWidth="150.0" />
+      <TextField fx:id="XEntry" layoutX="75.0" layoutY="175.0" />
+      <TextField fx:id="funcionEntry" layoutX="75.0" layoutY="227.0" />
+      <TextField fx:id="derivadaEntry" layoutX="75.0" layoutY="279.0" />
+      <TextField fx:id="nEntry" layoutX="75.0" layoutY="333.0" />
+      <TextField fx:id="tolEntry" layoutX="75.0" layoutY="383.0" />
+      <Label layoutX="45.0" layoutY="179.0" text="X" />
+      <Label layoutX="40.0" layoutY="233.0" text="f(x)" />
+      <Label layoutX="38.0" layoutY="283.0" text="f'(x)" />
+      <Label layoutX="43.0" layoutY="337.0" text="N" />
+      <Label layoutX="36.0" layoutY="387.0" text="TOL" />
+      <Button layoutX="268.0" layoutY="267.0" mnemonicParsing="false" text="Calculate" />
+      <TextArea fx:id="textArea" layoutX="359.0" layoutY="164.0" prefHeight="282.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>
