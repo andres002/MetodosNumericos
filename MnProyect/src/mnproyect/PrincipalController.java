@@ -38,7 +38,7 @@ public class PrincipalController implements Initializable {
     
      @FXML
     public void openWindowPu(ActionEvent e) {
-        //openWindowWithOption("PuntoGUI.fxml");
+        openWindowWithOption("PuntoFijoGUI.fxml");
     }
      @FXML
     public void openWindowNew(ActionEvent e) {
