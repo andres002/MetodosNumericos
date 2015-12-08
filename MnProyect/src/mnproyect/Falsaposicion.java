@@ -33,7 +33,7 @@ public class Falsaposicion {
         this.p1 = p1;
         this.tol = tol;
     }
-    
+    /*
     public float evaluate(Funcion f){
         float p;
         float q;
@@ -57,6 +57,6 @@ public class Falsaposicion {
         }
         System.err.println("‘Method failed after N iterations, N0 =" + n);
         return 0;   
-    }
+    }*/
     
 }

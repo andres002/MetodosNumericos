@@ -91,19 +91,27 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void bisecc() {
         String a = txt_aBi.getText().replace(" ", "");
+        String aux =a;
+        if(a.charAt(0) == '-')
+            //System.out.println(a.charAt(0));
+            aux = a.replaceFirst("-", "");
         String b = txt_bBi.getText().replace(" ", "");
+        String aux2 =b;
+        if(b.charAt(0) == '-')
+            //System.out.println(b.charAt(0));
+             aux2= b.replaceFirst("-", "");
         String function = txt_fBi.getText().replace(" ", "");
         function = function.toUpperCase();
-        String functiona = function.replace("X", a+"");
-        if(!(a.matches("[0-9]*") && b.matches("[0-9]*")) || (a.isEmpty()||b.isEmpty() || function.isEmpty())){
+       // String functiona = function.replace("X", a+"");
+        if(!(aux.matches("[0-9]*") && aux2.matches("[0-9]*")) || (a.isEmpty()||b.isEmpty() || function.isEmpty())){
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("ENTRADA INVALIDA");
             alert.setTitle("ERROR");
             alert.setContentText("Los campos A y B deben ser solo numeros y f(x) debe ser una entrada válida");
             alert.showAndWait();
         }
-        Biseccion bi = new Biseccion();
-        bi.funcion(functiona);
+        //Biseccion bi = new Biseccion();
+        //bi.funcion(functiona);
     }
     
     
