@@ -7,6 +7,8 @@ package mnproyect;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -129,15 +131,21 @@ public class BiseccionGUIController implements Initializable {
         num2 = new BigDecimal("2");
         while(i<=this.n){
             aux = new BigDecimal(f.redonTrunc(b.subtract(a)+""));
-            aux2 = new BigDecimal(f.redonTrunc(aux.divide(num2)+""));
+            MathContext m;
+            if (f.opcion == 1) {
+                m = new MathContext(f.k, RoundingMode.HALF_EVEN);//redondeo
+            } else {
+                m = new MathContext(f.k, RoundingMode.DOWN);//truncamiento
+            }
+            aux2 = new BigDecimal(f.redonTrunc(aux.divide(num2,m)+""));
             p = new BigDecimal(f.redonTrunc(a.add(aux2)+""));
             System.out.println("p----" + p);
             f.X = p+"";
             System.out.println("X------" + f.X);
             fp = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
-            System.out.println("fp------" + fp.doubleValue());
-            System.out.println("aux2-------" + aux2.doubleValue());
-            System.out.println("tol-------" + tol);
+            //System.out.println("fp------" + fp.doubleValue());
+            //System.out.println("aux2-------" + aux2.doubleValue());
+            //System.out.println("tol-------" + tol);
             if(fp.doubleValue()==0 || aux2.doubleValue() < tol){
                 textArea.setText(p.doubleValue()+"");
                 return;

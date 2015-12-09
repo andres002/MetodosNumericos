@@ -134,7 +134,7 @@ public class NewtonRaphsonGUIController implements Initializable {
         while(i<=n){
             aux = new BigDecimal(f2.Resultado(f2.Postfijo(f2.depurar())));//resultado de la funcion de x
             aux1 = new BigDecimal(f3.Resultado(f3.Postfijo(f3.depurar())));//resultado de la funcion de la derivada de X
-            System.out.println("aux1-------- " + aux1);
+            //System.out.println("aux1-------- " + aux1);
             //System.out.println("aux---------- " + aux.divide(aux1));
              MathContext m;
             if (f3.opcion == 1) {
