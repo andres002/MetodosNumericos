@@ -29,7 +29,7 @@ import javafx.stage.Stage;
 public class PosicionFalsaGUIController implements Initializable {
     
     @FXML private ComboBox serultOp;
-    @FXML private TextField p0Entry,p1Entry,funcionEntry,nEntry,tolEntry;
+    @FXML private TextField p0Entry,p1Entry,funcionEntry,nEntry,tolEntry,kEntry;
     @FXML private TextArea textArea;
     
     /**

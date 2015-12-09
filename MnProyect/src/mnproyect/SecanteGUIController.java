@@ -29,7 +29,7 @@ import javafx.stage.Stage;
 public class SecanteGUIController implements Initializable {
     
     @FXML private ComboBox serultOp;
-    @FXML private TextField x0Entry,x1Entry,funcionEntry,nEntry,tolEntry;
+    @FXML private TextField x0Entry,x1Entry,funcionEntry,nEntry,tolEntry,kEntry;
     @FXML private TextArea textArea;
     
     /**

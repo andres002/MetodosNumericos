@@ -39,5 +39,7 @@
          </cursor></Button>
       <TextField fx:id="derivadaEntry" layoutX="75.0" layoutY="279.0" />
       <Label layoutX="37.0" layoutY="283.0" text="f'(x)" />
+      <TextField fx:id="kEntry" layoutX="427.0" layoutY="113.0" prefHeight="25.0" prefWidth="65.0" />
+      <Label layoutX="457.0" layoutY="85.0" text="k" />
    </children>
 </AnchorPane>

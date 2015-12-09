@@ -34,7 +34,7 @@ public class BiseccionGUIController implements Initializable {
     @FXML
     private ComboBox serultOp;
     @FXML
-    private TextField aEntry, bEntry, funcionEntry, nEntry, tolEntry;
+    private TextField aEntry, bEntry, funcionEntry, nEntry, tolEntry, kEntry;
     @FXML
     private TextArea textArea;
 

@@ -40,5 +40,7 @@
       <ComboBox fx:id="nodesOp" layoutX="82.0" layoutY="86.0" prefWidth="150.0" />
       <TextField layoutX="76.0" layoutY="167.0" fx:id="x0Entry" />
       <Label layoutX="45.0" layoutY="256.0" text="x2" />
+      <TextField fx:id="kEntry" layoutX="268.0" layoutY="111.0" prefHeight="25.0" prefWidth="65.0" />
+      <Label layoutX="297.0" layoutY="90.0" text="K" />
    </children>
 </AnchorPane>
