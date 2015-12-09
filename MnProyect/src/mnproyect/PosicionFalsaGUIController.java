@@ -47,7 +47,10 @@ public class PosicionFalsaGUIController implements Initializable {
     private int n =0; 
     
     
-    
+    /**
+     * Metodo que se encarga de verificar que los campos de entrada hayan sido rellenados de forma correcta
+     * @return void
+     */
      @FXML
     private void verficar() {
         if (!(p0Entry.getText().replaceAll(" ", "").equals("")
@@ -78,7 +81,10 @@ public class PosicionFalsaGUIController implements Initializable {
         }
     }
     
-    
+    /**
+     * Metodo que se ocupa de asignar los valores a las expresiones segun las entradas en los campos de entrada de datos
+     * @return void 
+     */
      private void setVariables() {
 
         switch (serultOp.getValue() + "") {
@@ -130,6 +136,11 @@ public class PosicionFalsaGUIController implements Initializable {
 
         calculate();
     }
+     
+      /**
+     * Metodo donde se implementa el algoritmo de Newton Raphson
+     * @return void 
+     */
      
      public void calculate(){
 

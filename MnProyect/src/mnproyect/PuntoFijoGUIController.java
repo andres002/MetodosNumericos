@@ -44,6 +44,11 @@ public class PuntoFijoGUIController implements Initializable {
     private BigDecimal p;
     private Parser f = new Parser();
 
+    
+    /**
+     * Metodo que se encarga de verificar que los campos de entrada hayan sido rellenados de forma correcta
+     * @return void
+     */
     @FXML
     private void verficar() {
         if (!(XEntry.getText().replaceAll(" ", "").equals("")
@@ -71,6 +76,11 @@ public class PuntoFijoGUIController implements Initializable {
         }
 
     }
+    
+    /**
+     * Metodo que se ocupa de asignar los valores a las expresiones segun las entradas en los campos de entrada de datos
+     * @return void 
+     */
 
     private void setVariables() {
         switch (serultOp.getValue() + "") {
@@ -111,6 +121,11 @@ public class PuntoFijoGUIController implements Initializable {
 
         calculate();
     }
+    
+      /**
+     * Metodo donde se implementa el algoritmo de Newton Raphson
+     * @return void 
+     */
 
     public void calculate() {
         double respaldo = 0;
