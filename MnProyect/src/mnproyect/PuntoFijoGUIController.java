@@ -30,18 +30,21 @@ import javafx.stage.Stage;
  * @author Karlos
  */
 public class PuntoFijoGUIController implements Initializable {
-    
-    @FXML private ComboBox serultOp;
-    @FXML private TextField XEntry,funcionEntry,nEntry,tolEntry,kEntry;
-    @FXML private TextArea textArea;
-    
+
+    @FXML
+    private ComboBox serultOp;
+    @FXML
+    private TextField XEntry, funcionEntry, nEntry, tolEntry, kEntry;
+    @FXML
+    private TextArea textArea;
+
     private BigDecimal inicialP;
     private double tol;
     private int n;
     private BigDecimal p;
     private Parser f = new Parser();
-    
-     @FXML
+
+    @FXML
     private void verficar() {
         if (!(XEntry.getText().replaceAll(" ", "").equals("")
                 || funcionEntry.getText().replaceAll(" ", "").equals("")
@@ -50,7 +53,7 @@ public class PuntoFijoGUIController implements Initializable {
             try {
                 //double aux = Double.parseDouble(XEntry.getText().replaceAll(" ", ""));
                 double aux3 = Double.parseDouble(tolEntry.getText().replaceAll(" ", ""));
-                int aux4 = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));       
+                int aux4 = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
             } catch (Exception E) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("ERROR");
@@ -59,33 +62,17 @@ public class PuntoFijoGUIController implements Initializable {
                 alert.showAndWait();
             }
             setVariables();
-        }else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("ERROR");
-                alert.setHeaderText("No ha introducido uno o mas datos");
-                alert.setContentText("Todos los campos deben ser rellenados");
-                alert.showAndWait();
+            alert.setTitle("ERROR");
+            alert.setHeaderText("No ha introducido uno o mas datos");
+            alert.setContentText("Todos los campos deben ser rellenados");
+            alert.showAndWait();
         }
 
     }
-    
-    
-    
-     private void setVariables() {
-         
-       
-        f.function = XEntry.getText();
-        f.X = f.Resultado(f.Postfijo(f.depurar()));
-        inicialP=new BigDecimal(f.X);
-        //a = new BigDecimal(aEntry.getText().replaceAll(" ", ""));
-        //b = new BigDecimal(f.redonTrunc(bEntry.getText().replaceAll(" ", "")));
-        f.function = funcionEntry.getText();
-        this.tol = Double.parseDouble(tolEntry.getText().replaceAll(" ", ""));
-        this.n = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
-       /* if(kEntry.getText().replceAll.equals()){
-            
-        }*/
 
+    private void setVariables() {
         switch (serultOp.getValue() + "") {
             case "Truncamiento":
                 f.opcion = 2;
@@ -97,55 +84,71 @@ public class PuntoFijoGUIController implements Initializable {
                 f.opcion = 3;
                 break;
         }
+        if(!kEntry.getText().replaceAll(" ", "").equals("")){
+            int aux=0;
+            try {
+                aux =Integer.parseInt(kEntry.getText().replaceAll(" ", "")); 
+                f.k =aux;
+            } catch (Exception e) {
+                 Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("ERROR");
+                alert.setHeaderText(" ha introducido el valor de K Mal");
+                alert.setContentText("K recibe unicamente numeros enteros");
+                alert.showAndWait();
+                return;
+            }
+        }
+
+        f.function = XEntry.getText();
+        f.X = f.Resultado(f.Postfijo(f.depurar()));
+        inicialP = new BigDecimal(f.X);
+        //a = new BigDecimal(aEntry.getText().replaceAll(" ", ""));
+        //b = new BigDecimal(f.redonTrunc(bEntry.getText().replaceAll(" ", "")));
+        f.function = funcionEntry.getText();
+        this.tol = Double.parseDouble(tolEntry.getText().replaceAll(" ", ""));
+        this.n = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
+       
+
         calculate();
     }
-    
-    
-    public void calculate(){
-        double respaldo=0;
+
+    public void calculate() {
+        double respaldo = 0;
         int i = 1;
-        while (i <= this.n) { 
-            
+        while (i <= this.n) {
+
             this.p = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
-            BigDecimal aux,aux2;
-            aux = new BigDecimal(Math.abs(Double.parseDouble(f.redonTrunc(p.subtract(inicialP)+""))));
-            if(aux.doubleValue() < this.tol){
-                 textArea.setText(p.doubleValue()+"");
-                 return;
+            BigDecimal aux, aux2;
+            aux = new BigDecimal(Math.abs(Double.parseDouble(f.redonTrunc(p.subtract(inicialP) + ""))));
+            if (aux.doubleValue() < this.tol) {
+                textArea.setText(p.doubleValue() + "");
+                return;
             }
-            aux=null;
-            i = i+1;
+            aux = null;
+            i = i + 1;
             this.inicialP = this.p;
-            
-            f.X = this.p+"";
+
+            f.X = this.p + "";
             respaldo = p.doubleValue();
-            this.p=null;
+            this.p = null;
         }
-         Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("ERROR");
-                alert.setHeaderText("El metodo ha fallado");
-                alert.setContentText("El metodo falló despues de " + this.n + " Iteraciones");
-                alert.showAndWait();
-                textArea.setText(respaldo+"");
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("ERROR");
+        alert.setHeaderText("El metodo ha fallado");
+        alert.setContentText("El metodo falló despues de " + this.n + " Iteraciones");
+        alert.showAndWait();
+        textArea.setText(respaldo + "");
         return;
-    
+
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        @FXML
+
+    @FXML
     public void openWindowBack(ActionEvent e) {
         openWindowWithOption("Principal.fxml");
     }
-    
+
     private void openWindowWithOption(String file) {
-         
+
         Stage stage2 = (Stage) XEntry.getScene().getWindow();
         stage2.close();
         Stage stage = new Stage();
@@ -168,9 +171,8 @@ public class PuntoFijoGUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         serultOp.getItems().addAll(
-        "Truncamiento","Redondeo");
+                "Truncamiento", "Redondeo", "Todos los dígitos");
         serultOp.setValue("Redondeo");
-    }    
+    }
 
-    
 }

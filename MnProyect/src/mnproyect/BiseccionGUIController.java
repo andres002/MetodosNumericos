@@ -55,8 +55,8 @@ public class BiseccionGUIController implements Initializable {
                 || nEntry.getText().replaceAll(" ", "").equals("")
                 || tolEntry.getText().replaceAll(" ", "").equals(""))) {
             try {
-                double aux = Double.parseDouble(aEntry.getText().replaceAll(" ", ""));
-                double aux2 = Double.parseDouble(bEntry.getText().replaceAll(" ", ""));
+               // double aux = Double.parseDouble(aEntry.getText().replaceAll(" ", ""));
+                //double aux2 = Double.parseDouble(bEntry.getText().replaceAll(" ", ""));
                 double aux3 = Double.parseDouble(tolEntry.getText().replaceAll(" ", ""));
                 int aux4 = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
                
@@ -79,14 +79,6 @@ public class BiseccionGUIController implements Initializable {
     }
 
     private void setVariables() {
-        
-        f.X = f.redonTrunc(aEntry.getText().replaceAll(" ", ""));
-        a = new BigDecimal(aEntry.getText().replaceAll(" ", ""));
-        b = new BigDecimal(f.redonTrunc(bEntry.getText().replaceAll(" ", "")));
-        f.function = funcionEntry.getText();
-        this.tol = Double.parseDouble(tolEntry.getText().replaceAll(" ", ""));
-        this.n = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
-        
 
         switch (serultOp.getValue() + "") {
             case "Truncamiento":
@@ -99,6 +91,33 @@ public class BiseccionGUIController implements Initializable {
                 f.opcion = 3;
                 break;
         }
+        if(!kEntry.getText().replaceAll(" ", "").equals("")){
+            int aux=0;
+            try {
+                aux =Integer.parseInt(kEntry.getText().replaceAll(" ", "")); 
+                f.k =aux;
+            } catch (Exception e) {
+                 Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("ERROR");
+                alert.setHeaderText(" ha introducido el valor de K Mal");
+                alert.setContentText("K recibe unicamente numeros enteros");
+                alert.showAndWait();
+                return;
+            }
+           
+        }
+        f.function = bEntry.getText();
+        b = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
+        System.out.println("b----" + b);
+        f.function = aEntry.getText();
+        a = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
+        f.X = a+"";
+        System.out.println("primera X--------" + f.X);
+        f.function = funcionEntry.getText();
+        this.tol = Double.parseDouble(tolEntry.getText().replaceAll(" ", ""));
+        this.n = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
+        
+
         core();
     }
 
