@@ -21,13 +21,13 @@
       <TextField layoutX="75.0" layoutY="152.0" fx:id="x0Entry" />
       <TextField layoutX="75.0" layoutY="196.0" fx:id="x1Entry" />
       <TextField fx:id="funcionEntry" layoutX="75.0" layoutY="238.0" />
-      <TextField fx:id="nEntry" layoutX="75.0" layoutY="321.0" />
-      <TextField fx:id="tolEntry" layoutX="75.0" layoutY="362.0" />
+      <TextField fx:id="nEntry" layoutX="75.0" layoutY="280.0" />
+      <TextField fx:id="tolEntry" layoutX="75.0" layoutY="321.0" />
       <Label layoutX="39.0" layoutY="156.0" text="X0" />
       <Label layoutX="39.0" layoutY="200.0" text="X1" />
       <Label layoutX="38.0" layoutY="242.0" text="f(x)" />
-      <Label layoutX="42.0" layoutY="325.0" text="N" />
-      <Label layoutX="36.0" layoutY="366.0" text="TOL" />
+      <Label layoutX="42.0" layoutY="284.0" text="N" />
+      <Label layoutX="36.0" layoutY="325.0" text="TOL" />
       <Button layoutX="268.0" layoutY="267.0" mnemonicParsing="false" onAction="#verficar" text="Calculate">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -37,8 +37,6 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <TextField fx:id="derivadaEntry" layoutX="75.0" layoutY="279.0" />
-      <Label layoutX="37.0" layoutY="283.0" text="f'(x)" />
       <TextField fx:id="kEntry" layoutX="427.0" layoutY="113.0" prefHeight="25.0" prefWidth="65.0" />
       <Label layoutX="457.0" layoutY="85.0" text="k" />
    </children>
