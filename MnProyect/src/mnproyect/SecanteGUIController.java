@@ -112,7 +112,7 @@ public class SecanteGUIController implements Initializable {
         f.function = x0Entry.getText();
         x0 = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
         f2.function = x1Entry.getText();
-        x1 = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
+        x1 = new BigDecimal(f2.Resultado(f2.Postfijo(f2.depurar())));
         f.X = x0+"";
         f2.X = x1+"";
         System.out.println("primera X--------" + f.X);
@@ -143,8 +143,11 @@ public class SecanteGUIController implements Initializable {
                 m = new MathContext(f.k, RoundingMode.DOWN);//truncamiento
             }
             aux3 = new BigDecimal(f.redonTrunc(aux.divide(aux2,m)+""));
-            x2 = new BigDecimal(f.redonTrunc(x1.subtract(aux3)+""));
-            if(aux.doubleValue() < tol){
+            aux1 = new BigDecimal(f.redonTrunc(aux3.multiply(fx1)+""));
+            x2 = new BigDecimal(f.redonTrunc(x1.subtract(aux1)+""));
+            //System.out.println("EL VALOR DE X1 ES: "+x1);
+            
+            if(x2.doubleValue() < tol){
                 textArea.setText(x1.doubleValue()+"");
                 return;
             }
