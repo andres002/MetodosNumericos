@@ -44,7 +44,10 @@ public class SecanteGUIController implements Initializable {
     private int n =0; 
     
     
-    
+     /**
+     * Metodo que se encarga de verificar que los campos de entrada hayan sido rellenados de forma correcta
+     * @return void
+     */
      @FXML
     private void verficar() {
         if (!(x0Entry.getText().replaceAll(" ", "").equals("")
@@ -76,7 +79,10 @@ public class SecanteGUIController implements Initializable {
 
     }
     
-    
+    /**
+     * Metodo que se ocupa de asignar los valores a las expresiones segun las entradas en los campos de entrada de datos
+     * @return void 
+     */
     private void setVariables() {
 
         switch (serultOp.getValue() + "") {
@@ -126,7 +132,10 @@ public class SecanteGUIController implements Initializable {
     }
     
     
-    
+     /**
+     * Metodo donde se implementa el algoritmo de Newton Raphson
+     * @return void 
+     */
         public void calculate() {
         double respaldo = 0;
         int i = 0;
