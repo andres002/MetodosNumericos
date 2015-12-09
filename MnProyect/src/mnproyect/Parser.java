@@ -106,6 +106,7 @@ public class Parser {
         //this.function = this.function.replace("x", this.X + "");
         s = this.function;
         s = s.replace("x", this.X + "");
+        s = s.replace("X", this.X + "");
         s = s.replaceAll("pi", "3.141592653589793");
         s = s.replaceAll("e", "2.71828182846");
         s = s.replaceAll("\\s+", ""); //Elimina espacios en blanco

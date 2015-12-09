@@ -44,8 +44,9 @@ public class Lagrangre {
                     //(x-a[1][0])*a[0][1])
 			case 2:
 			y=((a[0][1] + "x + " + (a[0][1] * a[1][0]) +"/" +(a[0][0]-a[1][0]))+  "  ||  " +(a[1][1] + "x + " + (a[1][1] * a[0][0])+"/" +(a[1][0]-a[0][0])));
-                        j =  ((a[0][1])/(a[0][0]-a[1][0]) + (a[1][1])/(a[1][0]-a[0][0]) +  "x + " +((a[0][1] * a[1][0])/(a[0][0]-a[1][0]) + (a[1][1] * a[0][0]) / (a[1][0]-a[0][0]) )); 
-			return j;
+                        j =  ((a[0][1])/(a[0][0]-a[1][0]) + (a[1][1])/(a[1][0]-a[0][0]) +  "x  " +"+ (" + -1*((a[0][1] * a[1][0])/(a[0][0]-a[1][0]) + (a[1][1] * a[0][0]) / (a[1][0]-a[0][0]) ))+")"; 
+			                         System.out.println("lagrangeeeeeeeeeeeeee-------     " + "+ ("  + -1*((a[0][1] * a[1][0])/(a[0][0]-a[1][0]) + (a[1][1] * a[0][0]) / (a[1][0]-a[0][0]) ) + ")" ); 
+                        return j;
                            
                            //(a[0][0]-a[1][0])*(a[0][0]-a[2][0]);
                             //((a[1][0]-a[0][0])*(a[1][0]-a[2][0]));
@@ -60,7 +61,7 @@ public class Lagrangre {
 			j = (makeChido(a[0][1],((a[0][0]-a[1][0])*(a[0][0]-a[2][0]))) + makeChido(a[1][1],((a[1][0]-a[0][0])*(a[1][0]-a[2][0]))) + makeChido(a[2][1],((a[2][0]-a[0][0])*(a[2][0]-a[1][0])))  + "x2")    ;
                         k= ((mar * (-a[2][0] + -a[1][0])) + ( mer * (-a[0][0] + -a[2][0])) + ( mir * (-a[0][0] + -a[1][0])) + " x");
                         l = ((mar *(-a[2][0] * -a[1][0])) + (mer *(-a[0][0] * -a[2][0])) + (mir *(-a[0][0] * -a[1][0]))  + "");
-                        t = (j + "   " + k + "    " + l);
+                        t = ("(" + j + ") +  (" + k + ")  +  (" + l + ")");
                        
                         return t;			
                              
@@ -78,7 +79,7 @@ public class Lagrangre {
                         k = ((sacaDatosx2(a,0)*  makeChido(a[0][1], b)) + (sacaDatosx2(a,1) * makeChido(a[1][1],w)) + (sacaDatosx2(a,2) * makeChido(a[2][1],z)) + (sacaDatosx2(a,3) * makeChido(a[3][1],d)) + "x2");
                         l = ((sacaDatosx1(a,0) * makeChido(a[0][1], b)) + (sacaDatosx1(a,1) *  makeChido(a[1][1],w)) + (sacaDatosx1(a,2) *makeChido(a[2][1],z)) + (sacaDatosx1(a,3)  * makeChido(a[3][1],d)) + "x");
                         e = (((-a[2][0] * (-a[1][0] * -a[3][0])*makeChido(a[0][1], b) ))+ ((-a[2][0] * (-a[0][0] * -a[3][0]) )*  makeChido(a[1][1],w) )+ ((-a[1][0] * (-a[0][0] * -a[3][0]) ) *makeChido(a[2][1],z)) +((-a[2][0] * (-a[0][0] * -a[1][0]) )* makeChido(a[3][1],d)) + "");
-                        t  = (j + "    " + k + "    " + l + "   " + e);
+                        t  = ("(" + j + ")    (" +k + ")    (" + l + ")   (" + e + ")");
                         
                         System.out.println(makeChido(a[0][1], b));
                         System.out.println(sacaDatosx1(a,0));

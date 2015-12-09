@@ -175,8 +175,11 @@ public class LagrangeGUIController implements Initializable {
 
     private void core() {
 
-        int n = Integer.parseInt((String) nodesOp.getValue());
-        System.out.println("el finaaaaaaaaalll------ " + lagrange.MetodoInterLagrange(n, this.a));
+        int n = Integer.parseInt( nodesOp.getValue()+"");
+        
+        String aux = lagrange.MetodoInterLagrange(n, this.a);
+        System.out.println("el finaaaaaaaaalll------ " + aux);
+        
         textArea.setText(lagrange.MetodoInterLagrange(n, this.a));
     }
 
