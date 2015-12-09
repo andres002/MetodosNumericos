@@ -29,7 +29,7 @@ import javafx.stage.Stage;
 public class PuntoFijoGUIController implements Initializable {
     
     @FXML private ComboBox serultOp;
-    @FXML private TextField XEntry,funcionEntry,nEntry,tolEntry;
+    @FXML private TextField XEntry,funcionEntry,nEntry,tolEntry,kEntry;
     @FXML private TextArea textArea;
     
         @FXML

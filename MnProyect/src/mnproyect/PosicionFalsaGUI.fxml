@@ -38,5 +38,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <TextField fx:id="kEntry" layoutX="434.0" layoutY="122.0" prefHeight="25.0" prefWidth="50.0" />
+      <Label layoutX="456.0" layoutY="103.0" text="k" />
    </children>
 </AnchorPane>

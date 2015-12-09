@@ -12,8 +12,48 @@ import java.util.Scanner;
  * @author Ernesto
  */
 public class NewtonR {
+    private double inicialP;
+    private double tol;
+    private int n;
+    /*private Funcion f;
+    private Funcion derivada;
+    private double p;
     
-    static Double resultado;
+    
+    public NewtonR(){
+        
+    }
+    
+    public NewtonR(double inicialP, double tol, int n, Funcion f,Funcion derivada){
+        this.inicialP = inicialP;
+        this.tol = tol;
+        this.n = n;
+        this.f = f;
+        this.derivada = derivada;
+    }
+    
+    public double coreFuncion(){
+        int i = 1;
+        while (i <= this.n) {
+            this.p = this.inicialP - f.evaluate(this.inicialP)/derivada.evaluate(this.inicialP);
+            if (Math.abs(this.p - this.inicialP) < this.tol) {
+                return this.p;
+            }
+            i = i+1;
+            this.inicialP = this.p;
+        }
+        System.out.println("(‘The method failed after N0 iterations, N0 =" + this.n);
+        return 0;
+    }*/
+    
+    
+    
+    
+    
+}
+
+
+/*static Double resultado;
     
     public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -43,6 +83,4 @@ public class NewtonR {
 		Double resp = i-(resultado/resultado2);
 
 		return resp;
-	}
-    
-}
+	}*/

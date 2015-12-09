@@ -29,7 +29,7 @@ import javafx.stage.Stage;
 public class LagrangeGUIController implements Initializable {
 
     @FXML private ComboBox serultOp,nodesOp;
-    @FXML private TextField x0Entry,x1Entry,x2Entry,funcionEntry,nEntry,tolEntry;
+    @FXML private TextField x0Entry,x1Entry,x2Entry,funcionEntry,nEntry,tolEntry,kEntry;
     @FXML private TextArea textArea;
     
     /**

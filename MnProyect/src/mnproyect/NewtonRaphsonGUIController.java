@@ -29,7 +29,7 @@ import javafx.stage.Stage;
 public class NewtonRaphsonGUIController implements Initializable {
     
     @FXML private ComboBox serultOp;
-    @FXML private TextField XEntry,funcionEntry,derivadaEntry,nEntry,tolEntry;
+    @FXML private TextField XEntry,funcionEntry,derivadaEntry,nEntry,tolEntry,kEntry;
     @FXML private TextArea textArea;
     
     

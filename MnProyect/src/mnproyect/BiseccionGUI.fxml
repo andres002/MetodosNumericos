@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="482.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mnproyect.BiseccionGUIController">
+<AnchorPane id="AnchorPane" prefHeight="482.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mnproyect.BiseccionGUIController">
    <children>
       <Label layoutX="224.0" layoutY="24.0" text="BISECCION">
          <font>
@@ -37,5 +37,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <TextField fx:id="kEntry" layoutX="410.0" layoutY="86.0" />
+      <Label layoutX="481.0" layoutY="54.0" text="K" />
    </children>
 </AnchorPane>
