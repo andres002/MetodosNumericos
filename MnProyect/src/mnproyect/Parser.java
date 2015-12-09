@@ -357,17 +357,37 @@ public class Parser {
         //2. truncamiento, 1.- redondeo, 3.- Todos los digitos
 
         BigDecimal b = new BigDecimal(numero);
-        String aux = "";
+        BigDecimal mantissa;
+        BigDecimal mantissaredo;
+        BigDecimal exponente;
+        BigDecimal r;
+        //String mantissaredo = "";
         if (numero.contains(".")) {
             switch (opcion) {
                 case 1:
-                    aux = b.setScale(k, RoundingMode.HALF_EVEN) + "";
-                    return aux;
-
+                    mantissa = Kernel.getMantisa(b);
+                    mantissaredo = new BigDecimal(mantissa.setScale(k, RoundingMode.HALF_EVEN) + "");
+                    if(Kernel.getExponente(b) > 0){
+                        exponente = new BigDecimal("10").pow(Kernel.getExponente(b));
+                    }else if(Kernel.getExponente(b) < 0){
+                        exponente = new BigDecimal("1").divide(new BigDecimal("10").pow(-Kernel.getExponente(b)));
+                    }else{
+                        exponente = new BigDecimal("1");
+                    }
+                    r = mantissaredo.multiply(exponente);
+                    return r.toString();
                 case 2:
-                    aux = b.setScale(k, RoundingMode.DOWN) + "";
-                    return aux;
-
+                    mantissa = Kernel.getMantisa(b);
+                    mantissaredo = new BigDecimal(mantissa.setScale(k, RoundingMode.DOWN) + "");
+                    if(Kernel.getExponente(b) > 0){
+                        exponente = new BigDecimal("10").pow(Kernel.getExponente(b));
+                    }else if(Kernel.getExponente(b) < 0){
+                        exponente = new BigDecimal("1").divide(new BigDecimal("10").pow(-Kernel.getExponente(b)));
+                    }else{
+                        exponente = new BigDecimal("1");
+                    }
+                    r = mantissaredo.multiply(exponente);
+                    return r.toString();
                 default:
                     return numero;
 

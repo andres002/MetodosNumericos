@@ -141,7 +141,7 @@ public class NewtonRaphsonGUIController implements Initializable {
     private void calculate(){
         int i =1;
         BigDecimal aux,aux1,aux2;
-        double respaldo = 0;
+        BigDecimal respaldo = new BigDecimal("0");
         while(i<=n){
             aux = new BigDecimal(f2.Resultado(f2.Postfijo(f2.depurar())));//resultado de la funcion de x
             aux1 = new BigDecimal(f3.Resultado(f3.Postfijo(f3.depurar())));//resultado de la funcion de la derivada de X
@@ -158,14 +158,14 @@ public class NewtonRaphsonGUIController implements Initializable {
             aux= null;
             aux =  new BigDecimal(f3.redonTrunc(p.subtract(inicialP)+""));
             if (Math.abs(aux.doubleValue()) < tol) {
-                textArea.setText(p.doubleValue() + "");
+                textArea.setText(Kernel.conversor(p));
                 return;
             }
             i = i+1;
             this.inicialP = this.p;
             f2.X = this.p + "";
             f3.X =  this.p + "";
-            respaldo = p.doubleValue();
+            respaldo = p;
             this.p = null;
         }
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -173,7 +173,7 @@ public class NewtonRaphsonGUIController implements Initializable {
         alert.setHeaderText("El metodo ha fallado");
         alert.setContentText("El metodo falló despues de " + this.n + " Iteraciones");
         alert.showAndWait();
-        textArea.setText(respaldo + "");
+        textArea.setText(Kernel.conversor(respaldo));
         return;
     }
     

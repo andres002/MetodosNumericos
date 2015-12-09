@@ -157,7 +157,7 @@ public class SecanteGUIController implements Initializable {
             //System.out.println("EL VALOR DE X1 ES: "+x1);
             
             if(x2.doubleValue() < tol){
-                textArea.setText(x1.doubleValue()+"");
+                textArea.setText(Kernel.conversor(x1));
                 return;
             }
             x0 = x1;
@@ -172,7 +172,7 @@ public class SecanteGUIController implements Initializable {
         alert.setHeaderText("El metodo ha fallado");
         alert.setContentText("El metodo falló despues de " + this.n + " Iteraciones");
         alert.showAndWait();
-        textArea.setText(x1 + "");
+        textArea.setText(Kernel.conversor(x1));
         return;
 
     }

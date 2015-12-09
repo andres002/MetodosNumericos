@@ -164,7 +164,7 @@ public class PosicionFalsaGUIController implements Initializable {
            aux=null;
            aux = new BigDecimal(f.redonTrunc(p.subtract(p1)+""));
             if (Math.abs(aux.doubleValue()) < this.tol) {
-                textArea.setText(p.doubleValue() + "");
+                textArea.setText(Kernel.conversor(p));
                 return;
             }
             i = i +1;
@@ -182,7 +182,7 @@ public class PosicionFalsaGUIController implements Initializable {
         alert.setHeaderText("El metodo ha fallado");
         alert.setContentText("El metodo falló despues de " + this.n + " Iteraciones");
         alert.showAndWait();
-        textArea.setText(p + "");
+        textArea.setText(Kernel.conversor(p));
         return;
     }
 

@@ -143,7 +143,7 @@ public class BiseccionGUIController implements Initializable {
         BigDecimal p;
         BigDecimal aux,aux2,num2;
         num2 = new BigDecimal("2");
-        double respaldo = 0; 
+        BigDecimal respaldo = new BigDecimal("0"); 
         while(i<=this.n){
             aux = new BigDecimal(f.redonTrunc(b.subtract(a)+""));
             MathContext m;
@@ -162,7 +162,7 @@ public class BiseccionGUIController implements Initializable {
             //System.out.println("aux2-------" + aux2.doubleValue());
             //System.out.println("tol-------" + tol);
             if(fp.doubleValue()==0 || aux2.doubleValue() < tol){
-                textArea.setText(p.doubleValue()+"");
+                textArea.setText(Kernel.conversor(p));
                 return;
             }
             i+=1;
@@ -174,7 +174,7 @@ public class BiseccionGUIController implements Initializable {
             }else{
                 b=p;
             }
-            respaldo = p.doubleValue();
+            respaldo = p;
         }
         
          Alert alert = new Alert(AlertType.ERROR);
@@ -182,7 +182,7 @@ public class BiseccionGUIController implements Initializable {
                 alert.setHeaderText("El metodo ha fallado");
                 alert.setContentText("El metodo falló despues de " + this.n + " Iteraciones");
                 alert.showAndWait();
-                 textArea.setText(respaldo+"");
+                  textArea.setText(Kernel.conversor(respaldo));
     }
 
     @FXML

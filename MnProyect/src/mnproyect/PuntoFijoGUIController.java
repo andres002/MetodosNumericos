@@ -128,7 +128,7 @@ public class PuntoFijoGUIController implements Initializable {
      */
 
     public void calculate() {
-        double respaldo = 0;
+        BigDecimal respaldo = new BigDecimal("0");
         int i = 1;
         while (i <= this.n) {
 
@@ -136,7 +136,7 @@ public class PuntoFijoGUIController implements Initializable {
             BigDecimal aux, aux2;
             aux = new BigDecimal(Math.abs(Double.parseDouble(f.redonTrunc(p.subtract(inicialP) + ""))));
             if (aux.doubleValue() < this.tol) {
-                textArea.setText(p.doubleValue() + "");
+                 textArea.setText(Kernel.conversor(p));
                 return;
             }
             aux = null;
@@ -144,7 +144,7 @@ public class PuntoFijoGUIController implements Initializable {
             this.inicialP = this.p;
 
             f.X = this.p + "";
-            respaldo = p.doubleValue();
+            respaldo = p;
             this.p = null;
         }
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -152,7 +152,7 @@ public class PuntoFijoGUIController implements Initializable {
         alert.setHeaderText("El metodo ha fallado");
         alert.setContentText("El metodo falló despues de " + this.n + " Iteraciones");
         alert.showAndWait();
-        textArea.setText(respaldo + "");
+        textArea.setText(Kernel.conversor(respaldo));
         return;
 
     }
