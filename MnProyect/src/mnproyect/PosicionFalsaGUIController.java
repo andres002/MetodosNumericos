@@ -136,21 +136,20 @@ public class PosicionFalsaGUIController implements Initializable {
         int i = 2;
         this.q0 = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
         this.q1 = new BigDecimal(f2.Resultado(f2.Postfijo(f2.depurar())));
-        BigDecimal aux,aux1,aux2;
-        while (i <= this.n) {  
-            aux = new BigDecimal(f.redonTrunc(q1.subtract(q0)+""));
-            aux1 = new BigDecimal(f.redonTrunc(p0.subtract(p1)+""));
-            aux2 = new BigDecimal(f.redonTrunc(q1.multiply(aux1)+""));
-            aux1=null;
+        BigDecimal aux,aux1,aux2,aux3;
+        while (i <= this.n) {
+            aux = new BigDecimal(f.redonTrunc(p1.subtract(p0)+""));
+            aux1 = new BigDecimal(f.redonTrunc(q0.multiply(aux)+""));
+            aux2 = new BigDecimal(f.redonTrunc(q1.subtract(q0)+""));
             MathContext m;
             if (f.opcion == 1) {
                 m = new MathContext(f.k, RoundingMode.HALF_EVEN);//redondeo
             } else {
                 m = new MathContext(f.k, RoundingMode.DOWN);//truncamiento
             }
-            System.out.println("aux------------" + aux);
-            aux1 = new BigDecimal(f.redonTrunc(aux2.divide(aux,m)+""));
-            this.p = new BigDecimal(f.redonTrunc(p1.subtract(aux1)+""));
+            System.out.println("aux2 -------------> " + aux2);
+            aux3 = new BigDecimal(f.redonTrunc(aux1.divide(aux2,m)+""));
+           this.p = new BigDecimal(f.redonTrunc(p0.subtract(aux3)+""));
            aux=null;
            aux = new BigDecimal(f.redonTrunc(p.subtract(p1)+""));
             if (Math.abs(aux.doubleValue()) < this.tol) {
@@ -163,10 +162,9 @@ public class PosicionFalsaGUIController implements Initializable {
             if (Double.parseDouble(f.redonTrunc(q.multiply(q1)+"")) < 0) {
                 this.p0 = p1;
                 this.q0 = q1;
-            }else{
-                this.p1 = p;
-                this.q1 = q;
             }
+            this.p1 = p;
+            this.q1 = q;
         }
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("ERROR");
