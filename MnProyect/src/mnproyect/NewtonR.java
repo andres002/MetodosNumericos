@@ -15,12 +15,12 @@ public class NewtonR {
     private double inicialP;
     private double tol;
     private int n;
-    /*private Funcion f;
-    private Funcion derivada;
+   // private Funcion f;
+    //private Funcion derivada;
     private double p;
     
     
-    public NewtonR(){
+   /* public NewtonR(){
         
     }
     

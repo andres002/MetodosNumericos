@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="492.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mnproyect.NewtonRaphsonGUIController">
+<AnchorPane id="AnchorPane" prefHeight="492.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mnproyect.NewtonRaphsonGUIController">
     <children>
       <Label layoutX="172.0" layoutY="20.0" text="Newton - Raphson">
          <font>
@@ -28,7 +28,7 @@
       <Label layoutX="38.0" layoutY="283.0" text="f'(x)" />
       <Label layoutX="43.0" layoutY="337.0" text="N" />
       <Label layoutX="36.0" layoutY="387.0" text="TOL" />
-      <Button layoutX="268.0" layoutY="267.0" mnemonicParsing="false" text="Calculate">
+      <Button layoutX="268.0" layoutY="267.0" mnemonicParsing="false" onAction="#verficar" text="Calculate">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
