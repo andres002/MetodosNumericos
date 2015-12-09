@@ -18,7 +18,7 @@ public class Parser {
 
     //2. truncamiento, 1.- redondeo, 3.- Todos los digitos
     public String function = "";
-    int k = 6;
+    int k = 10;
     public int opcion = 1;
     double value = 0.0;
     public String X = "";

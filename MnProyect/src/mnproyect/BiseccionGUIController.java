@@ -59,7 +59,7 @@ public class BiseccionGUIController implements Initializable {
                 double aux2 = Double.parseDouble(bEntry.getText().replaceAll(" ", ""));
                 double aux3 = Double.parseDouble(tolEntry.getText().replaceAll(" ", ""));
                 int aux4 = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
-                setVariables();
+               
             } catch (Exception E) {
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setTitle("ERROR");
@@ -67,6 +67,7 @@ public class BiseccionGUIController implements Initializable {
                 alert.setContentText("Los Campos A y B reciben solamente numeros");
                 alert.showAndWait();
             }
+             setVariables();
         }else{
             Alert alert = new Alert(AlertType.ERROR);
                 alert.setTitle("ERROR");
