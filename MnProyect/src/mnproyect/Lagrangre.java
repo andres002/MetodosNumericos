@@ -14,9 +14,13 @@ import java.util.Scanner;
  * @author LuisFernando
  */
 public class Lagrangre {
+    
+    int n;
+    double a[][] = new double[4][2];
 
-   public static void MetodoInterLagrange(){
-		int n,i;
+   public String MetodoInterLagrange(int n, double a[][]){
+       
+		int i;
 		double x;
                 double b = 0;
                 double w = 0;
@@ -24,19 +28,16 @@ public class Lagrangre {
                 double d = 0;
                 String y;
                 String j, k, l, t, e;
-		double a[][] = new double [4][2];
+		this.a = a;
 		System.out.println("\t\t\t\"METODO DE INTERPOLACION LAGRANGE  2-4 PTOS.\"");
-		do{
-		System.out.print("Dame el numero de Nodos: ");
-		n=leeint();	
-		}while(n<2 || n>4);
+		this.n=n;	
 		System.out.print("Dame los  pares de Nodos: ");
-		for(i=0;i<n;i++){
-				System.out.println("Dame x "+i);
-				a[i][0]=lee();
-				System.out.println("Dame y "+i);
-				a[i][1]=lee();
-				}
+		/*for(i=0;i<n;i++){
+                    System.out.println("Dame x "+i);
+                    a[i][0]=lee();
+                    System.out.println("Dame y "+i);
+                    a[i][1]=lee();
+		}*/
 		//System.out.println("Dame el valor a interpolar ");
 		//x=lee();
 		switch(n){
@@ -44,8 +45,7 @@ public class Lagrangre {
 			case 2:
 			y=((a[0][1] + "x + " + (a[0][1] * a[1][0]) +"/" +(a[0][0]-a[1][0]))+  "  ||  " +(a[1][1] + "x + " + (a[1][1] * a[0][0])+"/" +(a[1][0]-a[0][0])));
                         j =  ((a[0][1])/(a[0][0]-a[1][0]) + (a[1][1])/(a[1][0]-a[0][0]) +  "x + " +((a[0][1] * a[1][0])/(a[0][0]-a[1][0]) + (a[1][1] * a[0][0]) / (a[1][0]-a[0][0]) )); 
-			System.out.println(j);
-			break;
+			return j;
                            
                            //(a[0][0]-a[1][0])*(a[0][0]-a[2][0]);
                             //((a[1][0]-a[0][0])*(a[1][0]-a[2][0]));
@@ -62,9 +62,7 @@ public class Lagrangre {
                         l = ((mar *(-a[2][0] * -a[1][0])) + (mer *(-a[0][0] * -a[2][0])) + (mir *(-a[0][0] * -a[1][0]))  + "");
                         t = (j + "   " + k + "    " + l);
                        
-                        System.out.println(t);
-			break;
-			
+                        return t;			
                              
                             //;
                             //((a[2][0]-a[0][0])*(a[2][0]-a[1][0])*(a[2][0]-a[3][0]));
@@ -95,17 +93,14 @@ public class Lagrangre {
                         System.out.println(sacaDatosx1(a,3));
                         System.out.println((sacaDatosx1(a,3)* makeChido(a[3][1], d)));
                         
-                        System.out.println(t);
+                        return t;
                         //System.out.println((sacaDatosx2(a,0)* makeChido(a[0][1], b)));
-			break;
 			default:
-			System.out.println("INVALIDO");
-			break;
-			
-		}
-                        
+			return "INVALIDO";
+		}     
 	}
-   public static double sacaDatosx2(double a[][],int g){
+   
+   public double sacaDatosx2(double a[][],int g){
        double fiinal = 0;
        if(g == 0){
            double f = -a[1][0]  -a[2][0];
@@ -130,7 +125,7 @@ public class Lagrangre {
        
    }
    
-   public static double sacaDatosx1(double a[][],int g){
+   public double sacaDatosx1(double a[][],int g){
        double fiinal = 0;
        if(g == 0){
            double f = -a[1][0] * -a[2][0];
@@ -156,7 +151,7 @@ public class Lagrangre {
    }
    
    
-   public static double makeChido(double y, double d){
+   public double makeChido(double y, double d){
        double r = 0;
        double t = 0;
        
@@ -165,7 +160,7 @@ public class Lagrangre {
        return t;
    }
 
-	public static double lee(){
+	public double lee(){
 		double num;
 		try{
 			InputStreamReader isr = new InputStreamReader (System.in);
@@ -180,7 +175,7 @@ public class Lagrangre {
 		return num;
 		}
 
-	public static int leeint(){
+	/*public static int leeint(){
 		int num;
 		try{
 			InputStreamReader isr = new InputStreamReader (System.in);
@@ -193,7 +188,7 @@ public class Lagrangre {
 			num=0;
 		}
 		return num;
-		}
+		}*/
 	
 
 	

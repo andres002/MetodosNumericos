@@ -18,17 +18,13 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <TextField layoutX="76.0" layoutY="210.0" fx:id="x1Entry" />
-      <TextField layoutX="76.0" layoutY="252.0" fx:id="x2Entry" />
-      <TextField fx:id="funcionEntry" layoutX="76.0" layoutY="290.0" />
-      <TextField fx:id="nEntry" layoutX="76.0" layoutY="328.0" />
-      <TextField fx:id="tolEntry" layoutX="76.0" layoutY="368.0" />
-      <Label layoutX="46.0" layoutY="171.0" text="x0" />
-      <Label layoutX="46.0" layoutY="214.0" text="x1" />
-      <Label layoutX="43.0" layoutY="294.0" text="f(x)" />
-      <Label layoutX="47.0" layoutY="332.0" text="N" />
-      <Label layoutX="41.0" layoutY="372.0" text="TOL" />
-      <Button layoutX="268.0" layoutY="267.0" mnemonicParsing="false" text="Calculate">
+      <TextField layoutX="75.0" layoutY="270.0" prefHeight="25.0" prefWidth="149.0" fx:id="x2Entry" />
+      <TextField layoutX="75.0" layoutY="312.0" prefHeight="25.0" prefWidth="149.0" fx:id="x3Entry" />
+      <TextField fx:id="funcionEntry" layoutX="75.0" layoutY="350.0" />
+      <Label layoutX="45.0" layoutY="231.0" text="x1" />
+      <Label layoutX="45.0" layoutY="274.0" text="x2" />
+      <Label layoutX="42.0" layoutY="354.0" text="f(x)" />
+      <Button layoutX="268.0" layoutY="267.0" mnemonicParsing="false" onAction="#verficar" text="Calculate">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -38,9 +34,11 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <ComboBox fx:id="nodesOp" layoutX="82.0" layoutY="86.0" prefWidth="150.0" />
-      <TextField layoutX="76.0" layoutY="167.0" fx:id="x0Entry" />
-      <Label layoutX="45.0" layoutY="256.0" text="x2" />
+      <TextField layoutX="75.0" layoutY="227.0" prefHeight="25.0" prefWidth="149.0" fx:id="x1Entry" />
+      <Label layoutX="44.0" layoutY="316.0" text="x3" />
       <TextField fx:id="kEntry" layoutX="268.0" layoutY="111.0" prefHeight="25.0" prefWidth="65.0" />
       <Label layoutX="297.0" layoutY="90.0" text="K" />
+      <Label layoutX="45.0" layoutY="188.0" text="x0" />
+      <TextField layoutX="75.0" layoutY="184.0" prefHeight="25.0" prefWidth="149.0" fx:id="x0Entry" />
    </children>
 </AnchorPane>
