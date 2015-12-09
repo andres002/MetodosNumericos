@@ -26,7 +26,12 @@ public class Parser {
     public void cambiavariables() {
 
     }
-
+    /**
+     * Algoritmo de cambio de expresiones de infijo a postfijo
+     * @param expr String con la expresion infijo
+     * @return String expresion postfijo
+     */
+    
     /* ALGORITMO DE CAMBIO DE EXPRESIONES DE INFIJO A POSTFIJO */
     public String Postfijo(String expr) {
         String[] arrayInfix = expr.split(" ");
@@ -92,6 +97,10 @@ public class Parser {
         return "";
     }
 
+    /**
+     * Metodo que cambia las variabes por su valor real
+     * @return String con la expresion infijo
+     */
     public String depurar() {
         String s = "";
         //this.function = this.function.replace("x", this.X + "");
@@ -142,6 +151,12 @@ public class Parser {
         return str.replaceAll("\\s+", " ").trim();
     }
 
+        
+    /**
+     * Metodo de apoyo para el metodo postfijo
+     * @param signo String con el signo deseado
+     * @return Retorna el equivalente al String indicado
+     */
     private static int orden(String signo) {
         switch (signo) {
             case "cot":
@@ -178,7 +193,11 @@ public class Parser {
                 return 99;
         }
     }
-
+    
+    /**
+     * Metodo que verifica que los parentesis de la expresion sean correctos
+     * @return true en caso de que la sintaxis sea correcta, de lo contrario retorna false
+     */
     public boolean verifica_parentesis() {
         String dato = function;
         Stack<String> cadena = new Stack<String>();
@@ -205,6 +224,11 @@ public class Parser {
         return true;
     }
 
+    /**
+     * Metodo que devuelve el resultado de la evaluacion de la ecuacion
+     * @param expr String con la expresion postfija
+     * @return String con el resultado de la evaluacion
+     */
     public String Resultado(String expr) {
         expr = expr.replaceAll("m", "-");
         String[] post = expr.split(" ");
@@ -241,6 +265,13 @@ public class Parser {
 
     }
 
+    /**
+     * Metodo que se encarga de realizar la operacion matematica dependiendo de los operadores que contenga la expresion
+     * @param String op
+     * @param String n2
+     * @param String n1
+     * @return BigDecimal
+     */
     private BigDecimal evaluar(String op, String n2, String n1) {
 
         BigDecimal num1 = new BigDecimal(redonTrunc(n1));
@@ -282,6 +313,13 @@ public class Parser {
         BigDecimal resultado = new BigDecimal("0");
         return resultado;
     }
+    
+    /**
+     * Metodo que selecciona la expresion matematica a usar
+     * @param String op
+     * @param String n1
+     * @return String con la expresion
+     */
 
     private String evaluar(String op, String n1) {
         n1 = redonTrunc(n1);
@@ -308,7 +346,12 @@ public class Parser {
 
         return "";
     }
-
+    
+    /**
+     * Metodo que redondea o trunca la expresion dependiendo la opcion seleccionada
+     * @param numero String con el numero a redondear, truncar o dejar intacto
+     * @return String con el numero expresado correctamente 
+     */
     public String redonTrunc(String numero) {
         //2. truncamiento, 1.- redondeo, 3.- Todos los digitos
 

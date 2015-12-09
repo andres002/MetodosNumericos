@@ -47,7 +47,12 @@ public class BiseccionGUIController implements Initializable {
     private BigDecimal fa,fp;
     private Parser f = new Parser();
     private Double tol;
-    private int n =0; 
+    private int n =0;
+    
+    /**
+     * Metodo que se encarga de verificar que los campos de entrada hayan sido rellenados de forma correcta
+     * @return void
+     */
 
     @FXML
     private void verficar() {
@@ -79,6 +84,11 @@ public class BiseccionGUIController implements Initializable {
         }
 
     }
+    
+    /**
+     * Metodo que se ocupa de asignar los valores a las expresiones segun las entradas en los campos de entrada de datos
+     * @return void 
+     */
 
     private void setVariables() {
 
@@ -120,10 +130,14 @@ public class BiseccionGUIController implements Initializable {
         this.n = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
         
 
-        core();
+        calculate();
     }
 
-    private void core() {
+    /**
+     * Metodo donde se implementa el algoritmo de Biseccion
+     * @return void 
+     */
+    private void calculate() {
         int i = 1;
         fa = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
         BigDecimal p;

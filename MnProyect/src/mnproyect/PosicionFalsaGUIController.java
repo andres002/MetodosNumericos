@@ -182,7 +182,7 @@ public class PosicionFalsaGUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         serultOp.getItems().addAll(
-        "Truncamiento","Redondeo");
+        "Truncamiento","Redondeo","Todos los dígitos");
         serultOp.setValue("Redondeo");
     }   
     
