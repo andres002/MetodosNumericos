@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="mnproyect.AyudaGUIController">
+   <children>
+      <TextArea editable="false" layoutX="13.0" layoutY="88.0" prefHeight="333.0" prefWidth="574.0" text="Bienevenido a la ayuda!&#10;&#10;--------------------------------&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;Sintaxis matematica&lt;&lt;&lt;&lt;&lt;&lt;&lt;----------------------------------&#10;Suma: +&#10;Resta: -&#10;Division: /&#10;Multiplicacion: *&#10;Elevacion: ^&#10;Pi: pi&#10;Numero de euler: e&#10;Logaritmo natural: log , ln&#10;Cotangente: cot&#10;Cosecante: csc&#10;Secante: sec&#10;Tangente: tan&#10;Coseno: cos&#10;Seno: sin&#10;Signos en negativo de numeros: m ( m5  -&gt;  -5)&#10;&#10;---------------------------------------------&gt;&gt;&gt;&gt;&gt;Escritura&lt;&lt;&lt;&lt;&lt;---------------------------------------&#10;&#10;Se debe escribir 2*x   y   no  2x.&#10;Se deben enserrar con parentesis expresiones como (2^x)-1 para identificar expresiones como una sola.&#10;(x-1)^(1/3) &lt;- Las raices se calculan mediante exponentes.&#10;No acepta expresiones como 1x10^-1.&#10;La tolerancia tiene que expresarse de forma explicita y no en notacion cientifica.&#10;Las expresiones como -sin x   se expresan como  sin mx.&#10;" />
+      <Label layoutX="252.0" layoutY="22.0" text="AYUDA">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

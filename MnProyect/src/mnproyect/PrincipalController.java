@@ -73,7 +73,7 @@ public class PrincipalController implements Initializable {
 
     @FXML
     public void openWindowHelp(ActionEvent e) {
-        //openWindowWithOption("HelpGUI.fxml");
+        openWindowWithOption("AyudaGUI.fxml");
     }
 
     private void openWindowWithOption(String file) {
