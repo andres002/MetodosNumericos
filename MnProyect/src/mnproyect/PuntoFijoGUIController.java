@@ -55,18 +55,28 @@ public class PuntoFijoGUIController implements Initializable {
                 || funcionEntry.getText().replaceAll(" ", "").equals("")
                 || nEntry.getText().replaceAll(" ", "").equals("")
                 || tolEntry.getText().replaceAll(" ", "").equals(""))) {
-            try {
-                //double aux = Double.parseDouble(XEntry.getText().replaceAll(" ", ""));
-                double aux3 = Double.parseDouble(tolEntry.getText().replaceAll(" ", ""));
-                int aux4 = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
-            } catch (Exception E) {
+            f.function = funcionEntry.getText().trim();
+            if (f.verifica_parentesis()) {
+                try {
+                    //double aux = Double.parseDouble(XEntry.getText().replaceAll(" ", ""));
+                    double aux3 = Double.parseDouble(tolEntry.getText().replaceAll(" ", ""));
+                    int aux4 = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
+                } catch (Exception E) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("ERROR");
+                    alert.setHeaderText("Ha introducido los datos mal");
+                    alert.setContentText("Los Campos A y B reciben solamente numeros");
+                    alert.showAndWait();
+                }
+                setVariables();
+            }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("ERROR");
                 alert.setHeaderText("Ha introducido los datos mal");
-                alert.setContentText("Los Campos A y B reciben solamente numeros");
+                alert.setContentText("Verifique los parentesis");
                 alert.showAndWait();
             }
-            setVariables();
+            
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");

@@ -44,16 +44,17 @@ public class BiseccionGUIController implements Initializable {
     //private Double x;
     private BigDecimal a;
     private BigDecimal b;
-    private BigDecimal fa,fp;
+    private BigDecimal fa, fp;
     private Parser f = new Parser();
     private Double tol;
-    private int n =0;
-    
+    private int n = 0;
+
     /**
-     * Metodo que se encarga de verificar que los campos de entrada hayan sido rellenados de forma correcta
+     * Metodo que se encarga de verificar que los campos de entrada hayan sido
+     * rellenados de forma correcta
+     *
      * @return void
      */
-
     @FXML
     private void verficar() {
         if (!(aEntry.getText().replaceAll(" ", "").equals("")
@@ -61,35 +62,47 @@ public class BiseccionGUIController implements Initializable {
                 || funcionEntry.getText().replaceAll(" ", "").equals("")
                 || nEntry.getText().replaceAll(" ", "").equals("")
                 || tolEntry.getText().replaceAll(" ", "").equals(""))) {
-            try {
-               // double aux = Double.parseDouble(aEntry.getText().replaceAll(" ", ""));
-                //double aux2 = Double.parseDouble(bEntry.getText().replaceAll(" ", ""));
-                double aux3 = Double.parseDouble(tolEntry.getText().replaceAll(" ", ""));
-                int aux4 = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
-               
-            } catch (Exception E) {
+            f.function = funcionEntry.getText().trim();
+            if (f.verifica_parentesis()) {
+
+                try {
+                    // double aux = Double.parseDouble(aEntry.getText().replaceAll(" ", ""));
+                    //double aux2 = Double.parseDouble(bEntry.getText().replaceAll(" ", ""));
+                    double aux3 = Double.parseDouble(tolEntry.getText().replaceAll(" ", ""));
+                    int aux4 = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
+
+                } catch (Exception E) {
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("ERROR");
+                    alert.setHeaderText("Ha introducido los datos mal");
+                    alert.setContentText("Los Campos A y B reciben solamente numeros");
+                    alert.showAndWait();
+                }
+                setVariables();
+                
+            }else{
                 Alert alert = new Alert(AlertType.ERROR);
-                alert.setTitle("ERROR");
-                alert.setHeaderText("Ha introducido los datos mal");
-                alert.setContentText("Los Campos A y B reciben solamente numeros");
-                alert.showAndWait();
+                    alert.setTitle("ERROR");
+                    alert.setHeaderText("Ha introducido los datos mal");
+                    alert.setContentText("Verifique los parentesis");
+                    alert.showAndWait();
             }
-             setVariables();
-        }else{
+        } else {
             Alert alert = new Alert(AlertType.ERROR);
-                alert.setTitle("ERROR");
-                alert.setHeaderText("No ha introducido uno o mas datos");
-                alert.setContentText("Todos los campos deben ser rellenados");
-                alert.showAndWait();
+            alert.setTitle("ERROR");
+            alert.setHeaderText("No ha introducido uno o mas datos");
+            alert.setContentText("Todos los campos deben ser rellenados");
+            alert.showAndWait();
         }
 
     }
-    
-    /**
-     * Metodo que se ocupa de asignar los valores a las expresiones segun las entradas en los campos de entrada de datos
-     * @return void 
-     */
 
+    /**
+     * Metodo que se ocupa de asignar los valores a las expresiones segun las
+     * entradas en los campos de entrada de datos
+     *
+     * @return void
+     */
     private void setVariables() {
 
         switch (serultOp.getValue() + "") {
@@ -103,86 +116,86 @@ public class BiseccionGUIController implements Initializable {
                 f.opcion = 3;
                 break;
         }
-        if(!kEntry.getText().replaceAll(" ", "").equals("")){
-            int aux=0;
+        if (!kEntry.getText().replaceAll(" ", "").equals("")) {
+            int aux = 0;
             try {
-                aux =Integer.parseInt(kEntry.getText().replaceAll(" ", "")); 
-                f.k =aux;
+                aux = Integer.parseInt(kEntry.getText().replaceAll(" ", ""));
+                f.k = aux;
             } catch (Exception e) {
-                 Alert alert = new Alert(AlertType.ERROR);
+                Alert alert = new Alert(AlertType.ERROR);
                 alert.setTitle("ERROR");
                 alert.setHeaderText(" ha introducido el valor de K Mal");
                 alert.setContentText("K recibe unicamente numeros enteros");
                 alert.showAndWait();
                 return;
             }
-           
+
         }
         f.function = bEntry.getText();
         b = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
         System.out.println("b----" + b);
         f.function = aEntry.getText();
         a = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
-        f.X = a+"";
+        f.X = a + "";
         System.out.println("primera X--------" + f.X);
         f.function = funcionEntry.getText();
         this.tol = Double.parseDouble(tolEntry.getText().replaceAll(" ", ""));
         this.n = Integer.parseInt(nEntry.getText().replaceAll(" ", ""));
-        
 
         calculate();
     }
 
     /**
      * Metodo donde se implementa el algoritmo de Biseccion
-     * @return void 
+     *
+     * @return void
      */
     private void calculate() {
         int i = 1;
         fa = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
         BigDecimal p;
-        BigDecimal aux,aux2,num2;
+        BigDecimal aux, aux2, num2;
         num2 = new BigDecimal("2");
-        BigDecimal respaldo = new BigDecimal("0"); 
-        while(i<=this.n){
-            aux = new BigDecimal(f.redonTrunc(b.subtract(a)+""));
+        BigDecimal respaldo = new BigDecimal("0");
+        while (i <= this.n) {
+            aux = new BigDecimal(f.redonTrunc(b.subtract(a) + ""));
             MathContext m;
             if (f.opcion == 1) {
                 m = new MathContext(f.k, RoundingMode.HALF_EVEN);//redondeo
             } else {
                 m = new MathContext(f.k, RoundingMode.DOWN);//truncamiento
             }
-            aux2 = new BigDecimal(f.redonTrunc(aux.divide(num2,m)+""));
-            p = new BigDecimal(f.redonTrunc(a.add(aux2)+""));
+            aux2 = new BigDecimal(f.redonTrunc(aux.divide(num2, m) + ""));
+            p = new BigDecimal(f.redonTrunc(a.add(aux2) + ""));
             System.out.println("p----" + p);
-            f.X = p+"";
+            f.X = p + "";
             System.out.println("X------" + f.X);
             fp = new BigDecimal(f.Resultado(f.Postfijo(f.depurar())));
             //System.out.println("fp------" + fp.doubleValue());
             //System.out.println("aux2-------" + aux2.doubleValue());
             //System.out.println("tol-------" + tol);
-            if(fp.doubleValue()==0 || aux2.doubleValue() < tol){
+            if (fp.doubleValue() == 0 || aux2.doubleValue() < tol) {
                 textArea.setText(Kernel.conversor(p));
                 return;
             }
-            i+=1;
-            aux=null;
-            aux = new BigDecimal(f.redonTrunc(fa.multiply(fp)+""));
-            if(aux.doubleValue() > 0){
+            i += 1;
+            aux = null;
+            aux = new BigDecimal(f.redonTrunc(fa.multiply(fp) + ""));
+            if (aux.doubleValue() > 0) {
                 this.a = p;
                 fa = fp;
-            }else{
-                b=p;
+            } else {
+                b = p;
             }
             respaldo = p;
         }
-        
-         Alert alert = new Alert(AlertType.ERROR);
-                alert.setTitle("ERROR");
-                alert.setHeaderText("El metodo ha fallado");
-                alert.setContentText("El metodo falló despues de " + this.n + " Iteraciones");
-                alert.showAndWait();
-                  textArea.setText(Kernel.conversor(respaldo));
+
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("ERROR");
+        alert.setHeaderText("El metodo ha fallado");
+        alert.setContentText("El metodo falló despues de " + this.n + " Iteraciones");
+        alert.showAndWait();
+        textArea.setText(Kernel.conversor(respaldo));
     }
 
     @FXML
